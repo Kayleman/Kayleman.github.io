@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢. 设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，brid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢. 设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，brid">
+<meta property="og:image" content="http://img.blog.csdn.net/20170322152131835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170322151901066?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170322153032511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170322155221506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-06-23T05:25:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢. 设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，brid">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170322152131835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Ubuntu16.04虚拟机设置固定IP上网" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/" class="article-date">
+  <time datetime="2017-06-23T05:25:20.000Z" itemprop="datePublished">2017-06-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢.</strong></p>
+<p>设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，bridged模式对应 VMnet0虚拟网络，都是由VMware虚拟机自动配置而生成的，不需要用户自行设置。VMnet8和VMnet1提供DHCP服务，VMnet0虚拟 网络则不提供。</p>
+<p>当前环境:<br>虚拟机版本:VMware WorkStation 12<br>系统版本:Ubuntu 16.04</p>
+<h2 id="1-设置虚拟机上网方式为NAT"><a href="#1-设置虚拟机上网方式为NAT" class="headerlink" title="1. 设置虚拟机上网方式为NAT"></a>1. 设置虚拟机上网方式为NAT</h2><p>在<strong>虚拟机设置</strong>中的<strong>网络适配器</strong>里,选择<strong>NAT模式</strong></p>
+<p><img src="http://img.blog.csdn.net/20170322152131835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="设置网络连接模式"></p>
+<p>##2. 配置VMnet8虚拟网络</p>
+<p><img src="http://img.blog.csdn.net/20170322151901066?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="启动虚拟网络编辑器"></p>
+<p>在VMware的<strong>编辑</strong>选项中打开<strong>虚拟网络编辑器</strong></p>
+<p>按照下图中对虚拟网络进行设置,虚拟网络的列表里默认是有VMnet0,VMnet1和VMnet8三种,我只有一种是因为我把另外两种给移除了,在这里我们选择<strong>VMnet8</strong>网络,其中子网IP根据自己的情况进行设置,只要不把原来已有的给占用即可.</p>
+<p><img src="http://img.blog.csdn.net/20170322153032511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="虚拟网络编辑器"></p>
+<h2 id="3-进入到Ubuntu系统中配置网络"><a href="#3-进入到Ubuntu系统中配置网络" class="headerlink" title="3. 进入到Ubuntu系统中配置网络"></a>3. 进入到Ubuntu系统中配置网络</h2><p>主要配置下面三个方面的内容：</p>
+<ol>
+<li>修改文件/etc/network/interfaces，这里是IP、网关、掩码等的一些配置；</li>
+<li>修改文件/etc/resolv.conf，这个文件保存DNS的有关信息；</li>
+<li>解决resolv.conf被重写问题；</li>
+<li>重启虚拟机网络</li>
+</ol>
+<p>####(1).修改文件/etc/network/interfaces</p>
+<p>输入命令:<code>sudo vi /etc/network/interfaces</code><br>或者:<code>sudo gedit /etc/network/interfaces</code></p>
+<p>配置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#interfaces(5) file used by ifup(8) and ifdown(8)</div><div class="line">auto lo</div><div class="line">iface lo inet loopback</div><div class="line">auto ens33</div><div class="line"></div><div class="line">iface ens33 inet static</div><div class="line">address 192.168.8.100</div><div class="line">netmask 255.255.255.0</div><div class="line">gateway 192.168.8.2</div><div class="line"></div><div class="line">dns-nameservers 8.8.8.8</div></pre></td></tr></table></figure>
+<p>其中较新版本的比如我的Ubuntu16.04 就是ens33,有的版本是eth0, 具体可以在终端输入<code>ifconfig</code>命令查看,如图:</p>
+<p><img src="http://img.blog.csdn.net/20170322155221506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>另外其中的网关要和虚拟网络编辑器中设置的一致,一般好像为192.168.XXX.2</p>
+<p>上面最后一行设置的DNS不是必要的,可在下一步设置,这一步的优先级比resolv.conf中高,会优先在这一步读取DNS,如果没有配置才会去resolve.conf里面查找.</p>
+<p>####(2)修改文件/etc/resolv.conf</p>
+<p>输入命令:<code>sudo vi /etc/resolv.conf</code> 或 <code>sudo gedit /etc/resolv.conf</code></p>
+<p>配置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nameserver 8.8.8.8</div></pre></td></tr></table></figure>
+<p>这里具体DNS因人而异</p>
+<p>####(3)解决resolv.conf被重写问题<br>第二步中你虽然配置了DNS，但是每次重启虚拟机或重启网络后<code>/etc/resolv.conf</code>文件就会被重写，也就是又恢复原样了，你以前的配置就不存在了，每次都要手动配置是极不可取的，所以这步是必须的，首先我们要搞清楚resolv.conf被重写的原因和机制，这在不同 Ubuntu版本下有所差异。</p>
+<p>在这一步,教程原文上有两种办法,第一种是根据不同系统版本来采取不同的办法,第二种是于版本无关,通用的做法.我选了第二种,如果想看第一种方法,可以在文末的原文链接里去看.</p>
+<p>第二种办法就是在前面第(1)步中在最后面直接加上你的DNS地址,因为interfaces优先级比resolv.conf高,会优先看interfaces里面的DNS.</p>
+<p>####(4)重启虚拟机网络</p>
+<p>配置完成后需要重启一下网络:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service networking restart</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/networking restart</div></pre></td></tr></table></figure>
+<p>在这一步我重启网络失败了,只能选择了下面的重启网卡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo ifconfig eth0 down </div><div class="line">sudo ifconfig eth0 up</div></pre></td></tr></table></figure>
+<p>赶紧试试是不是可以了</p>
+<p>参考:<br><a href="http://www.cnblogs.com/lanxuezaipiao/p/3613497.html" target="_blank" rel="external">原文链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/" data-id="cj49ez5gu0002waspkt8zh7y0" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/23/win7自己遇到的小问题总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/23/虚拟机里面的Ubuntu怎么和主机共享科学上网/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/23/win7自己遇到的小问题总结/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/23/虚拟机里面的Ubuntu怎么和主机共享科学上网/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/23/Mac下Vim安装NERDTree插件/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/23/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
