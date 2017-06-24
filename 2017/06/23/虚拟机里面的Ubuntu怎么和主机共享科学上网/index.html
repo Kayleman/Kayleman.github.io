@@ -5,22 +5,19 @@
     
     <title>Ubuntu虚拟机如何与主机共享科学上网 | Kayle&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程 ##1.通过ShadowSocks科学上网通常这类软件里面都有允许来自局域网的连接之类的选项  勾选这个选项,然后查看一下代理端口是多少,一般默认是1080  ##2.查看主机的ip地址 我主机是Windows系统,在命令窗口输入ip">
+    <meta name="description" content="前言主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了 1.通过ShadowSocks科学上网通常这类软件里面都有允许来自局域网的连接之类的选项  勾选这个选项,然后查看一下代理端口是多少,一般默认是1080">
 <meta name="keywords" content="Ubuntu,科学上网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu虚拟机如何与主机共享科学上网">
 <meta property="og:url" content="http://kayleman.github.io/2017/06/23/虚拟机里面的Ubuntu怎么和主机共享科学上网/index.html">
 <meta property="og:site_name" content="Kayle&#39;s Blog">
-<meta property="og:description" content="主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程 ##1.通过ShadowSocks科学上网通常这类软件里面都有允许来自局域网的连接之类的选项  勾选这个选项,然后查看一下代理端口是多少,一般默认是1080  ##2.查看主机的ip地址 我主机是Windows系统,在命令窗口输入ip">
-<meta property="og:image" content="http://img.blog.csdn.net/20170322163008446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170322163707715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170322164119904?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170322164407871?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-06-23T12:46:10.000Z">
+<meta property="og:description" content="前言主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了 1.通过ShadowSocks科学上网通常这类软件里面都有允许来自局域网的连接之类的选项  勾选这个选项,然后查看一下代理端口是多少,一般默认是1080">
+<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/aa23e93egy1fgw3n7jqfbj23b4274b29.jpg">
+<meta property="og:updated_time" content="2017-06-24T04:17:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu虚拟机如何与主机共享科学上网">
-<meta name="twitter:description" content="主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程 ##1.通过ShadowSocks科学上网通常这类软件里面都有允许来自局域网的连接之类的选项  勾选这个选项,然后查看一下代理端口是多少,一般默认是1080  ##2.查看主机的ip地址 我主机是Windows系统,在命令窗口输入ip">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170322163008446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:description" content="前言主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了 1.通过ShadowSocks科学上网通常这类软件里面都有允许来自局域网的连接之类的选项  勾选这个选项,然后查看一下代理端口是多少,一般默认是1080">
+<meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/aa23e93egy1fgw3n7jqfbj23b4274b29.jpg">
     
 
     
@@ -169,7 +166,7 @@
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                4
+                6
                 <span>标签</span>
             </div>
         </div>
@@ -220,6 +217,14 @@
             <section id="main"><article id="post-虚拟机里面的Ubuntu怎么和主机共享科学上网" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
+            
+	
+		<img src="http://wx2.sinaimg.cn/mw690/aa23e93egy1fgw3n7jqfbj23b4274b29.jpg" class="article-banner" />
+	
+
+
+
+        
         
             <header class="article-header">
                 
@@ -260,16 +265,20 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢?</p>
-<p>我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程</p>
-<p>##1.通过ShadowSocks科学上网<br>通常这类软件里面都有<strong>允许来自局域网的连接</strong>之类的选项</p>
-<p><img src="http://img.blog.csdn.net/20170322163008446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="SS设置"></p>
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-通过ShadowSocks科学上网"><span class="toc-number">2.</span> <span class="toc-text">1.通过ShadowSocks科学上网</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-查看主机的ip地址"><span class="toc-number">3.</span> <span class="toc-text">2.查看主机的ip地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-在Ubuntu下面填写代理"><span class="toc-number">4.</span> <span class="toc-text">3.在Ubuntu下面填写代理</span></a></li></ol>
+                </div>
+            
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢?</p>
+<p>我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了</p>
+<h1 id="1-通过ShadowSocks科学上网"><a href="#1-通过ShadowSocks科学上网" class="headerlink" title="1.通过ShadowSocks科学上网"></a>1.通过ShadowSocks科学上网</h1><p>通常这类软件里面都有<strong>允许来自局域网的连接</strong>之类的选项</p>
+<p><img src="http://img.blog.csdn.net/20170322163008446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="ShadowSocks设置"></p>
 <p>勾选这个选项,然后查看一下<strong>代理端口</strong>是多少,一般默认是<strong>1080</strong></p>
-<p><img src="http://img.blog.csdn.net/20170322163707715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>##2.查看主机的ip地址</p>
-<p>我主机是Windows系统,在命令窗口输入<code>ipconfig</code>,得到自己的主机ip</p>
-<p>##3.在Ubuntu下面填写代理</p>
-<p>在Ubuntu中打开Network,选择下面的Network proxy,选择Manual手动模式,将主机的IP和代理端口填入<br><img src="http://img.blog.csdn.net/20170322164119904?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="填写代理"></p>
+<p><img src="http://img.blog.csdn.net/20170322163707715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="查看服务器的代理端口号"></p>
+<a id="more"></a>
+<h1 id="2-查看主机的ip地址"><a href="#2-查看主机的ip地址" class="headerlink" title="2.查看主机的ip地址"></a>2.查看主机的ip地址</h1><p>我主机是Windows系统,在命令窗口输入<code>ipconfig</code>,得到自己的主机ip</p>
+<h1 id="3-在Ubuntu下面填写代理"><a href="#3-在Ubuntu下面填写代理" class="headerlink" title="3.在Ubuntu下面填写代理"></a>3.在Ubuntu下面填写代理</h1><p>在Ubuntu中打开Network,选择下面的Network proxy,选择Manual手动模式,将主机的IP和代理端口填入<br><img src="http://img.blog.csdn.net/20170322164119904?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="填写代理"></p>
 <p>完成!</p>
 <p><img src="http://img.blog.csdn.net/20170322164407871?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Google"></p>
 
@@ -350,7 +359,7 @@
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    (no title)
+                    Ubuntu16.04虚拟机设置固定IP的方法
                 
             </div>
         </a>
@@ -395,15 +404,15 @@
                             <a href="/2017/06/23/win7自己遇到的小问题总结/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://wx3.sinaimg.cn/mw690/aa23e93egy1fgw3n03p1qj223u16oe35.jpg)" alt="Win7遇到的小问题备忘" class="thumbnail-image"></span>
     
 </a>
 
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/06/23/win7自己遇到的小问题总结/" class="title"></a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/备忘/">备忘</a></p>
+                            <p class="item-title"><a href="/2017/06/23/win7自己遇到的小问题总结/" class="title">Win7遇到的小问题备忘</a></p>
                             <p class="item-date"><time datetime="2017-06-23T05:25:21.000Z" itemprop="datePublished">2017-06-23</time></p>
                         </div>
                     </li>
@@ -414,15 +423,15 @@
                             <a href="/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://wx4.sinaimg.cn/mw690/aa23e93egy1fgw3mtnzlnj24442bbu10.jpg)" alt="Ubuntu16.04虚拟机设置固定IP的方法" class="thumbnail-image"></span>
     
 </a>
 
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/" class="title"></a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a></p>
+                            <p class="item-title"><a href="/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/" class="title">Ubuntu16.04虚拟机设置固定IP的方法</a></p>
                             <p class="item-date"><time datetime="2017-06-23T05:25:20.000Z" itemprop="datePublished">2017-06-23</time></p>
                         </div>
                     </li>
@@ -433,7 +442,7 @@
                             <a href="/2017/06/23/虚拟机里面的Ubuntu怎么和主机共享科学上网/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(http://wx2.sinaimg.cn/mw690/aa23e93egy1fgw3n7jqfbj23b4274b29.jpg)" alt="Ubuntu虚拟机如何与主机共享科学上网" class="thumbnail-image"></span>
     
 </a>
 
@@ -474,7 +483,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/科学上网/">科学上网</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/备忘/">备忘</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/科学上网/">科学上网</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -492,7 +501,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows7/">Windows7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟机/">虚拟机</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -501,7 +510,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a>
+            <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Windows7/" style="font-size: 10px;">Windows7</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/虚拟机/" style="font-size: 10px;">虚拟机</a>
         </div>
     </div>
 
