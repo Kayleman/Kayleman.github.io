@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Kayle&#39;s Blog">
 <meta property="og:description" content="前言由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢. 设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，br">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw690/aa23e93egy1fgw3mtnzlnj24442bbu10.jpg">
-<meta property="og:updated_time" content="2017-06-24T04:18:30.000Z">
+<meta property="og:updated_time" content="2017-06-24T04:32:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04虚拟机设置固定IP的方法">
 <meta name="twitter:description" content="前言由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢. 设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，br">
@@ -273,9 +273,9 @@
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢.</strong></p>
 <p>设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，bridged模式对应 VMnet0虚拟网络，都是由VMware虚拟机自动配置而生成的，不需要用户自行设置。VMnet8和VMnet1提供DHCP服务，VMnet0虚拟 网络则不提供。</p>
 <p>当前环境:<br>虚拟机版本:VMware WorkStation 12<br>系统版本:Ubuntu 16.04</p>
+<a id="more"></a>
 <h1 id="1-设置虚拟机上网方式为NAT"><a href="#1-设置虚拟机上网方式为NAT" class="headerlink" title="1. 设置虚拟机上网方式为NAT"></a>1. 设置虚拟机上网方式为NAT</h1><p>在<strong>虚拟机设置</strong>中的<strong>网络适配器</strong>里,选择<strong>NAT模式</strong></p>
 <p><img src="http://img.blog.csdn.net/20170322152131835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="设置网络连接模式"></p>
-<a id="more"></a>
 <h1 id="2-配置VMnet8虚拟网络"><a href="#2-配置VMnet8虚拟网络" class="headerlink" title="2. 配置VMnet8虚拟网络"></a>2. 配置VMnet8虚拟网络</h1><p><img src="http://img.blog.csdn.net/20170322151901066?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="启动虚拟网络编辑器"></p>
 <p>在VMware的<strong>编辑</strong>选项中打开<strong>虚拟网络编辑器</strong></p>
 <p>按照下图中对虚拟网络进行设置,虚拟网络的列表里默认是有VMnet0,VMnet1和VMnet8三种,我只有一种是因为我把另外两种给移除了,在这里我们选择<strong>VMnet8</strong>网络,其中子网IP根据自己的情况进行设置,只要不把原来已有的给占用即可.</p>

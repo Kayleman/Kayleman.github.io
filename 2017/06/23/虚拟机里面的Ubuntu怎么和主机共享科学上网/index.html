@@ -5,18 +5,18 @@
     
     <title>Ubuntu虚拟机如何与主机共享科学上网 | Kayle&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="前言主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了 1.通过ShadowSocks科学上网通常这类软件里面都有允许来自局域网的连接之类的选项  勾选这个选项,然后查看一下代理端口是多少,一般默认是1080">
+    <meta name="description" content="前言主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了">
 <meta name="keywords" content="Ubuntu,科学上网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu虚拟机如何与主机共享科学上网">
 <meta property="og:url" content="http://kayleman.github.io/2017/06/23/虚拟机里面的Ubuntu怎么和主机共享科学上网/index.html">
 <meta property="og:site_name" content="Kayle&#39;s Blog">
-<meta property="og:description" content="前言主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了 1.通过ShadowSocks科学上网通常这类软件里面都有允许来自局域网的连接之类的选项  勾选这个选项,然后查看一下代理端口是多少,一般默认是1080">
+<meta property="og:description" content="前言主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/aa23e93egy1fgw3n7jqfbj23b4274b29.jpg">
-<meta property="og:updated_time" content="2017-06-24T04:17:55.000Z">
+<meta property="og:updated_time" content="2017-06-24T04:28:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu虚拟机如何与主机共享科学上网">
-<meta name="twitter:description" content="前言主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了 1.通过ShadowSocks科学上网通常这类软件里面都有允许来自局域网的连接之类的选项  勾选这个选项,然后查看一下代理端口是多少,一般默认是1080">
+<meta name="twitter:description" content="前言主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢? 我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了">
 <meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/aa23e93egy1fgw3n7jqfbj23b4274b29.jpg">
     
 
@@ -272,11 +272,11 @@
             
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢?</p>
 <p>我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了</p>
+<a id="more"></a>
 <h1 id="1-通过ShadowSocks科学上网"><a href="#1-通过ShadowSocks科学上网" class="headerlink" title="1.通过ShadowSocks科学上网"></a>1.通过ShadowSocks科学上网</h1><p>通常这类软件里面都有<strong>允许来自局域网的连接</strong>之类的选项</p>
 <p><img src="http://img.blog.csdn.net/20170322163008446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="ShadowSocks设置"></p>
 <p>勾选这个选项,然后查看一下<strong>代理端口</strong>是多少,一般默认是<strong>1080</strong></p>
 <p><img src="http://img.blog.csdn.net/20170322163707715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="查看服务器的代理端口号"></p>
-<a id="more"></a>
 <h1 id="2-查看主机的ip地址"><a href="#2-查看主机的ip地址" class="headerlink" title="2.查看主机的ip地址"></a>2.查看主机的ip地址</h1><p>我主机是Windows系统,在命令窗口输入<code>ipconfig</code>,得到自己的主机ip</p>
 <h1 id="3-在Ubuntu下面填写代理"><a href="#3-在Ubuntu下面填写代理" class="headerlink" title="3.在Ubuntu下面填写代理"></a>3.在Ubuntu下面填写代理</h1><p>在Ubuntu中打开Network,选择下面的Network proxy,选择Manual手动模式,将主机的IP和代理端口填入<br><img src="http://img.blog.csdn.net/20170322164119904?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="填写代理"></p>
 <p>完成!</p>

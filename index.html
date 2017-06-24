@@ -263,101 +263,10 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <h1 id="1-开机自动默认打开numlock键，想要关闭。"><a href="#1-开机自动默认打开numlock键，想要关闭。" class="headerlink" title="1.开机自动默认打开numlock键，想要关闭。"></a>1.开机自动默认打开numlock键，想要关闭。</h1><ol>
-<li><p>在开始菜单搜索栏输入 <code>regedit</code> ，打开注册表定位到下面键值<br><code>HKEY_USERS\.DEFAULT\Control Panel\Keyboard</code></p>
-</li>
-<li><p>修改<code>InitialKeyboardIndicators</code>的键值 </p>
-<ul>
-<li><p>设置为“2”，小键盘默认为开； </p>
-</li>
-<li><p>设置为“1”，小键盘默认为关闭； </p>
-</li>
-<li><p>设置为“0”，则系统关机前Unm Lock是什么状态，开机后还是什么状态。</p>
-</li>
-</ul>
-</li>
-</ol>
-<h1 id="2-win7系统开机，还没输密码直接显示用户密码错误。"><a href="#2-win7系统开机，还没输密码直接显示用户密码错误。" class="headerlink" title="2.win7系统开机，还没输密码直接显示用户密码错误。"></a>2.win7系统开机，还没输密码直接显示用户密码错误。</h1><ol>
-<li><p>在开始菜单搜索框输入 “<code>netplwiz</code>” 按回车，打开高级用户控制面板；</p>
-</li>
-<li><p>在高级用户控制面板中，“<strong>要使用本机，用户需输入用户名和密码(E)</strong>”项的勾选打勾. </p>
-</li>
-</ol>
-<h1 id="3-开机界面什么都没有"><a href="#3-开机界面什么都没有" class="headerlink" title="3.开机界面什么都没有"></a>3.开机界面什么都没有</h1><ol>
-<li><p>Ctrl + Shift + Esc调出任务管理器,直接把explorer进程给关闭</p>
-</li>
-<li><p>在任务管理器左上角选择”文件” –&gt; “新建任务” 输入<code>explorer</code>以管理员身份运行。 </p>
-</li>
-</ol>
-<h1 id="4-怎么上Google"><a href="#4-怎么上Google" class="headerlink" title="4.怎么上Google"></a>4.怎么上Google</h1><ol>
-<li><p>用GoGoTester找可用的Google IP</p>
-</li>
-<li><p>在cmd界面ping一下IP是否可用，确认可用</p>
-</li>
-<li><p>到<code>C:\Windows\System32\drivers\etc</code>修改hosts</p>
-</li>
-<li><p>最好刷新一下dns，即在cmd界面输入ipconfig/flushdns</p>
-</li>
-<li><p>或者直接去www.laod.cn这个网站上去找hosts文件,下载下来,同样按照第3步替换hosts文件</p>
-</li>
-</ol>
-<h1 id="5-怎么不让Google跳转到hk或者其它地区"><a href="#5-怎么不让Google跳转到hk或者其它地区" class="headerlink" title="5.怎么不让Google跳转到hk或者其它地区"></a>5.怎么不让Google跳转到hk或者其它地区</h1><p>第一次直接在浏览器打<code>www.google.com</code>的时候经常会出现无法连接的情况</p>
-<p>可以直接输入<code>https://www.google.com</code></p>
-<p>然后有可能会被跳转到<code>.hk</code>的香港的服务器去,由于香港的服务器也是被屏蔽了很多信息的</p>
-<p>如果不想跳转可以一次性直接输入<code>https://www.google.com/ncr</code></p>
-<p>后面的<code>/ncr</code>代表禁止国别跳转</p>
-<p>之后就不需要在次输入<code>/ncr</code>会默认不跳转</p>
-<h1 id="6-怎么在chrome搜索框默认用Google搜索而不跳转到hk"><a href="#6-怎么在chrome搜索框默认用Google搜索而不跳转到hk" class="headerlink" title="6.怎么在chrome搜索框默认用Google搜索而不跳转到hk"></a>6.怎么在chrome搜索框默认用Google搜索而不跳转到hk</h1><ol>
-<li><p>在Google界面随便搜索一个词比如说“asd”</p>
-</li>
-<li><p>把地址栏里的asd对应替换成%s，全部复制</p>
-</li>
-<li><p>到设置里添加搜索引擎</p>
-</li>
-<li><p>把这个新添加的设为默认搜索引擎 </p>
-</li>
-</ol>
-<h1 id="7-win7怎么设置定时关机"><a href="#7-win7怎么设置定时关机" class="headerlink" title="7.win7怎么设置定时关机"></a>7.win7怎么设置定时关机</h1><ol>
-<li><p>最简单的就用一些360，QQ管家，QQ音乐，WIFI共享精灵之类的</p>
-</li>
-<li><p>win7里面有自带的关机程序，在<code>Windows\System32\Shutdown.exe</code>，可以直接打开这个可执行应用程序</p>
-</li>
-<li><p>也可以选择“开始-&gt;运行-&gt;cmd”打开命令窗口，比如你的电脑要在22:00关机，输入“<code>at 22:00 Shutdown -s</code>”</p>
-<p> 到了22点电脑就会出现“系统关机”对话框，默认有30秒钟的倒计时并提示你保存工作。</p>
-<p> 如果你想以倒计时的方式关机，可以输入“<code>Shutdown.exe -s -t 3600</code>”，表示60分钟后自动关机，“3600”代表60分钟 </p>
-<p> 设置好自动关机后，如果想取消的话，可以在运行中输入“<code>shutdown -a</code>”。</p>
-<p> 另外输入 “<code>shutdown -i</code>”，则可以打开设置自动关机对话框，对自动关机进行设置。 </p>
-<p> Shutdown.exe的参数，每个都具有特定的用途，执行每一个都会产生不同的效果，比如 </p>
-<ul>
-<li>-s：就表示关闭本地计算机</li>
-<li>-a：表示取消关机操作</li>
-<li>-f：强行关闭应用程序 </li>
-<li>-m 计算机名：控制远程计算机 </li>
-<li>-i：显示图形用户界面，但必须是Shutdown的第一个选项 </li>
-<li>-l：注销当前用户 </li>
-<li>-r：关机并重启 </li>
-<li>-t 时间：设置关机倒计时 </li>
-<li>-c “消息内容”：输入关机对话框中的消息内容</li>
-</ul>
-</li>
-</ol>
-<h1 id="8-不格式化硬盘转换硬盘格式（FAT32转NTFS）"><a href="#8-不格式化硬盘转换硬盘格式（FAT32转NTFS）" class="headerlink" title="8.不格式化硬盘转换硬盘格式（FAT32转NTFS）"></a>8.不格式化硬盘转换硬盘格式（FAT32转NTFS）</h1><ol>
-<li><p>运行输入cmd进入命令界面</p>
-</li>
-<li><p>输入<code>convert c: /fs:ntfs</code>（其中C就是指C盘，转哪个写哪个盘名）</p>
-</li>
-</ol>
-<h1 id="9-音量控制图标不见了怎么办"><a href="#9-音量控制图标不见了怎么办" class="headerlink" title="9.音量控制图标不见了怎么办"></a>9.音量控制图标不见了怎么办</h1><p>将<code>explorer.exe</code>重启,具体怎么重启见前面第3条</p>
-<h1 id="10-图片只显示缩略图怎么办"><a href="#10-图片只显示缩略图怎么办" class="headerlink" title="10.图片只显示缩略图怎么办"></a>10.图片只显示缩略图怎么办</h1><ol>
-<li><p>打开<strong>我的电脑</strong></p>
-</li>
-<li><p>点开<strong>工具</strong>，选择<strong>文件夹选项</strong></p>
-</li>
-<li><p>点击<strong>查看</strong>，把<strong>始终显示图标</strong>勾选去掉。</p>
-</li>
-</ol>
-
+            <p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文记录了我自己在使用win7过程中遇到的一些小问题,整理起来备忘.</p></p>
+            <p class="article-more-link">
+                <a href="/2017/06/23/win7自己遇到的小问题总结/#more">查看更多</a>
+            </p>
         
         </div>
 	
@@ -487,9 +396,7 @@
         
             <p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢.</strong></p>
 <p>设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，bridged模式对应 VMnet0虚拟网络，都是由VMware虚拟机自动配置而生成的，不需要用户自行设置。VMnet8和VMnet1提供DHCP服务，VMnet0虚拟 网络则不提供。</p>
-<p>当前环境:<br>虚拟机版本:VMware WorkStation 12<br>系统版本:Ubuntu 16.04</p>
-<h1 id="1-设置虚拟机上网方式为NAT"><a href="#1-设置虚拟机上网方式为NAT" class="headerlink" title="1. 设置虚拟机上网方式为NAT"></a>1. 设置虚拟机上网方式为NAT</h1><p>在<strong>虚拟机设置</strong>中的<strong>网络适配器</strong>里,选择<strong>NAT模式</strong></p>
-<p><img src="http://img.blog.csdn.net/20170322152131835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="设置网络连接模式"></p></p>
+<p>当前环境:<br>虚拟机版本:VMware WorkStation 12<br>系统版本:Ubuntu 16.04</p></p>
             <p class="article-more-link">
                 <a href="/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/#more">查看更多</a>
             </p>
@@ -621,11 +528,7 @@
         <div class="article-entry" itemprop="articleBody">
         
             <p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>主机已经科学上网了,希望虚拟机里面的Ubuntu也能够科学上网,要怎么做呢?</p>
-<p>我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了</p>
-<h1 id="1-通过ShadowSocks科学上网"><a href="#1-通过ShadowSocks科学上网" class="headerlink" title="1.通过ShadowSocks科学上网"></a>1.通过ShadowSocks科学上网</h1><p>通常这类软件里面都有<strong>允许来自局域网的连接</strong>之类的选项</p>
-<p><img src="http://img.blog.csdn.net/20170322163008446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="ShadowSocks设置"></p>
-<p>勾选这个选项,然后查看一下<strong>代理端口</strong>是多少,一般默认是<strong>1080</strong></p>
-<p><img src="http://img.blog.csdn.net/20170322163707715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="查看服务器的代理端口号"></p></p>
+<p>我用的科学上网软件是ShadowSocks,关于这个软件怎么科学上网网上有非常多的教程,这里就不够多介绍了</p></p>
             <p class="article-more-link">
                 <a href="/2017/06/23/虚拟机里面的Ubuntu怎么和主机共享科学上网/#more">查看更多</a>
             </p>
@@ -756,11 +659,7 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h1 id="1-安装pathogen-vim"><a href="#1-安装pathogen-vim" class="headerlink" title="1.安装pathogen.vim"></a>1.安装pathogen.vim</h1><p>在Terminal输入以下命令,创建.vim文件夹和下面的autoload和bundle子文件夹,同时将pathogen.vim下载到autoload里面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; \</div><div class="line">curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim</div></pre></td></tr></table></figure>
-<p>通过<code>vim ~/.vimrc</code>编辑vim配置文件,将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">execute pathogen#infect()</div></pre></td></tr></table></figure>
-<p>添加到vimrc中</p></p>
+            <p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信所有使用 vim 的同学都知道文件管理插件 NERDTree，这个几乎是所有拥护 vim 的开发人员都会使用的插件, 本文简单介绍了 NERDTree 的安装.</p></p>
             <p class="article-more-link">
                 <a href="/2017/06/23/Mac下Vim安装NERDTree插件/#more">查看更多</a>
             </p>

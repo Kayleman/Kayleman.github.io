@@ -5,18 +5,18 @@
     
     <title>Mac下Vim安装NERDTree插件的方法 | Kayle&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1.安装pathogen.vim在Terminal输入以下命令,创建.vim文件夹和下面的autoload和bundle子文件夹,同时将pathogen.vim下载到autoload里面 12mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;amp;&amp;amp; \curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.p">
+    <meta name="description" content="前言相信所有使用 vim 的同学都知道文件管理插件 NERDTree，这个几乎是所有拥护 vim 的开发人员都会使用的插件, 本文简单介绍了 NERDTree 的安装.">
 <meta name="keywords" content="Vim,插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac下Vim安装NERDTree插件的方法">
 <meta property="og:url" content="http://kayleman.github.io/2017/06/23/Mac下Vim安装NERDTree插件/index.html">
 <meta property="og:site_name" content="Kayle&#39;s Blog">
-<meta property="og:description" content="1.安装pathogen.vim在Terminal输入以下命令,创建.vim文件夹和下面的autoload和bundle子文件夹,同时将pathogen.vim下载到autoload里面 12mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;amp;&amp;amp; \curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.p">
+<meta property="og:description" content="前言相信所有使用 vim 的同学都知道文件管理插件 NERDTree，这个几乎是所有拥护 vim 的开发人员都会使用的插件, 本文简单介绍了 NERDTree 的安装.">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/aa23e93egy1fgw3n8tamqj21hc0zitk5.jpg">
-<meta property="og:updated_time" content="2017-06-24T04:07:08.000Z">
+<meta property="og:updated_time" content="2017-06-24T04:31:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下Vim安装NERDTree插件的方法">
-<meta name="twitter:description" content="1.安装pathogen.vim在Terminal输入以下命令,创建.vim文件夹和下面的autoload和bundle子文件夹,同时将pathogen.vim下载到autoload里面 12mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;amp;&amp;amp; \curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.p">
+<meta name="twitter:description" content="前言相信所有使用 vim 的同学都知道文件管理插件 NERDTree，这个几乎是所有拥护 vim 的开发人员都会使用的插件, 本文简单介绍了 NERDTree 的安装.">
 <meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/aa23e93egy1fgw3n8tamqj21hc0zitk5.jpg">
     
 
@@ -267,15 +267,16 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-安装pathogen-vim"><span class="toc-number">1.</span> <span class="toc-text">1.安装pathogen.vim</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-安装NERDTree"><span class="toc-number">2.</span> <span class="toc-text">2.安装NERDTree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.1.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-安装pathogen-vim"><span class="toc-number">2.</span> <span class="toc-text">1.安装pathogen.vim</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-安装NERDTree"><span class="toc-number">3.</span> <span class="toc-text">2.安装NERDTree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.1.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
                 </div>
             
-            <h1 id="1-安装pathogen-vim"><a href="#1-安装pathogen-vim" class="headerlink" title="1.安装pathogen.vim"></a>1.安装pathogen.vim</h1><p>在Terminal输入以下命令,创建.vim文件夹和下面的autoload和bundle子文件夹,同时将pathogen.vim下载到autoload里面</p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信所有使用 vim 的同学都知道文件管理插件 NERDTree，这个几乎是所有拥护 vim 的开发人员都会使用的插件, 本文简单介绍了 NERDTree 的安装.</p>
+<a id="more"></a>
+<h1 id="1-安装pathogen-vim"><a href="#1-安装pathogen-vim" class="headerlink" title="1.安装pathogen.vim"></a>1.安装pathogen.vim</h1><p>在Terminal输入以下命令,创建.vim文件夹和下面的autoload和bundle子文件夹,同时将pathogen.vim下载到autoload里面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; \</div><div class="line">curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim</div></pre></td></tr></table></figure>
 <p>通过<code>vim ~/.vimrc</code>编辑vim配置文件,将</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">execute pathogen#infect()</div></pre></td></tr></table></figure>
 <p>添加到vimrc中</p>
-<a id="more"></a>
 <h1 id="2-安装NERDTree"><a href="#2-安装NERDTree" class="headerlink" title="2.安装NERDTree"></a>2.安装NERDTree</h1><p>进入到bundle文件夹,并且把NERDTree下载在这个目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.vim/bundle</div><div class="line">git clone https://github.com/scrooloose/nerdtree.git</div></pre></td></tr></table></figure></p>
 <p>在Terminal下输入vim进入vim窗口,输入<code>:NERDTree</code>启动NERDTree,在确定NERDTree已经安装成功后,为了避免以后每次开启都需要输入<code>:NERDTree</code>较为麻烦,为它设置一个快捷键</p>
 <p>定义快捷键,键入<code>vim ~/.vimrc</code>按i进入插入模式输入<code>nnoremap &lt;silent&gt; &lt;F5&gt; :NERDTree&lt;CR&gt;</code>按Esc键返回Normal状态并输入:wq保存退出。定义F5为显示树状目录的快捷键。</p>
