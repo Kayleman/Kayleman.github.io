@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Kayle&#39;s Blog">
 <meta property="og:description" content="前言由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢. 设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，br">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw690/aa23e93egy1fgw3mtnzlnj24442bbu10.jpg">
-<meta property="og:updated_time" content="2017-06-24T04:32:23.000Z">
+<meta property="og:updated_time" content="2017-06-24T05:09:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04虚拟机设置固定IP的方法">
 <meta name="twitter:description" content="前言由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢. 设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，br">
@@ -245,11 +245,6 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-                <div id="toc" class="toc-article">
-                <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-设置虚拟机上网方式为NAT"><span class="toc-number">2.</span> <span class="toc-text">1. 设置虚拟机上网方式为NAT</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-配置VMnet8虚拟网络"><span class="toc-number">3.</span> <span class="toc-text">2. 配置VMnet8虚拟网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-进入到Ubuntu系统中配置网络"><span class="toc-number">4.</span> <span class="toc-text">3. 进入到Ubuntu系统中配置网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-修改文件-etc-network-interfaces"><span class="toc-number">4.1.</span> <span class="toc-text">(1).修改文件/etc/network/interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改文件-etc-resolv-conf"><span class="toc-number">4.2.</span> <span class="toc-text">(2)修改文件/etc/resolv.conf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-解决resolv-conf被重写问题"><span class="toc-number">4.3.</span> <span class="toc-text">(3)解决resolv.conf被重写问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-重启虚拟机网络"><span class="toc-number">4.4.</span> <span class="toc-text">(4)重启虚拟机网络</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考:</span></a></li></ol>
-                </div>
-            
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢.</strong></p>
 <p>设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，bridged模式对应 VMnet0虚拟网络，都是由VMware虚拟机自动配置而生成的，不需要用户自行设置。VMnet8和VMnet1提供DHCP服务，VMnet0虚拟 网络则不提供。</p>
 <p>当前环境:<br>虚拟机版本:VMware WorkStation 12<br>系统版本:Ubuntu 16.04</p>
@@ -300,7 +295,7 @@
 
 </div>
 
-    <a data-url="http://kayleman.github.io/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/" data-id="cj4atqrcj0002mcsp1eq8ktwj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://kayleman.github.io/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/" data-id="cj4atuimw0002o6spnxm9t2kp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
