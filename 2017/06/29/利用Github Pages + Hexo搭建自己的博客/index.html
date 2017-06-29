@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Kayle&#39;s Blog">
 <meta property="og:description" content="前言一直想要搭建一个自己的博客，用来记录自己的学习到的一些东西，方便以后忘记了来翻看。那么就用本文记录一下在搭建博客过程中遇到的一些坑。 首先要说明本文是在Mac环境下搭建的，Windows环境下面没有尝试，但是根据Wiyee同学说的都是大同小异罢了。 Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/aa23e93egy1fgw3ms5emsj23341wdu0x.jpg">
-<meta property="og:updated_time" content="2017-06-29T08:39:01.000Z">
+<meta property="og:updated_time" content="2017-06-29T08:48:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Github Pages + Hexo搭建自己的博客">
 <meta name="twitter:description" content="前言一直想要搭建一个自己的博客，用来记录自己的学习到的一些东西，方便以后忘记了来翻看。那么就用本文记录一下在搭建博客过程中遇到的一些坑。 首先要说明本文是在Mac环境下搭建的，Windows环境下面没有尝试，但是根据Wiyee同学说的都是大同小异罢了。 Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。">
@@ -290,38 +290,31 @@ ga('send', 'pageview');
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>在终端输入<code>npm install -g hexo-cli</code></p>
 <p>更详细的可以见Hexo的<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">官方文档</a>。</p>
 <h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>Hexo安装好了之后，就可以开始建站了，通过终端<code>cd</code>到将要建站的位置，输入以下命令：</p>
-<pre><code>hexo init yourname
-cd yourname
-npm install
-</code></pre><p>其中<code>yourname</code>可以任意取，比如我的叫<code>Hexo</code>，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init yourname</div><div class="line">cd yourname</div><div class="line">npm install</div></pre></td></tr></table></figure>
+<p>其中<code>yourname</code>可以任意取，比如我的叫<code>Hexo</code>，</p>
 <p>关于建站的更多信息你可以参考官方文档，<a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="external">点击这里</a>。</p>
 <p>官方文档没有讲解如何配置与Github Pages进行关联，在此简单说明一下。进入到你的站点，也就是<code>yourname</code>文件夹，下文统一使用我自己的文件夹名<code>Hexo</code>方便描述。进入到文件夹以后你可以看到<code>_config.yml</code>这个文件，这是一个配置文件，是用来配置信息的。用编辑器打开<code>_config.yml</code>拉到最下面，你可以看到有<code>deply</code>和<code>type</code>字段，可以参考我的例子如下输入：</p>
-<pre><code>deploy:
-    type: git
-    repo: https://github.com/Kayleman/Kayleman.github.io.git
-    branch: master
-</code></pre><p>该空格的地方要空格。其中<code>repo：</code>后面的就改成你的Github Pages提交代码的git地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line"> 	  type: git</div><div class="line"> 	  repo: https://github.com/Kayleman/Kayleman.github.io.git</div><div class="line"> 	  branch: master</div></pre></td></tr></table></figure>
+<p>该空格的地方要空格。其中<code>repo：</code>后面的就改成你的Github Pages提交代码的git地址。</p>
 <p>你的git地址在你刚才创建好的Github Pages仓库就能找到。</p>
 <p>到此为止，你可以进入你的站点文件夹，使用<code>hexo s</code>命令，如果你看到<code>Hexo is running at http://localhost:4000/. Press Ctrl+C to stop</code>这么一句话，那么请打开你的浏览器输入<code>http://localhost:4000/</code>你就可以看到最初始的hexo界面了，是不是有点丑？不要紧，后期我们还可以修改页面的主题来更换样式。</p>
 <h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>刚才那样只是能够在本地显示，还没有上传到Github Pages服务器上面，所以我们需要在站点里输入以下命令：</p>
-<pre><code>hexo clean
-hexo g
-hexo d
-</code></pre><p>其中第一条命令是清楚缓存，第二条命令全名是<code>hexo generate</code>，是用来生成静态文件的，第三条命令全名是<code>hexo deploy</code>，这条命令是用来把本地的文件发布到Github Pages上的。一般平时就使用这几个命令，更多命令可以参考<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官方文档</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure>
+<p>其中第一条命令是清楚缓存，第二条命令全名是<code>hexo generate</code>，是用来生成静态文件的，第三条命令全名是<code>hexo deploy</code>，这条命令是用来把本地的文件发布到Github Pages上的。一般平时就使用这几个命令，更多命令可以参考<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官方文档</a></p>
 <p>在我刚开始使用<code>hexo d</code>部署的时候出现了<code>not found</code>的问题，如果遇到了这个问题，请先输入：</p>
-<pre><code>npm install hexo-deployer-git --save
-</code></pre><p>然后再运行<code>hexo d</code>进行尝试。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>然后再运行<code>hexo d</code>进行尝试。</p>
 <p>为了方便<code>hexo g</code>和<code>hexo d</code>可以组合起来写，如下：</p>
-<pre><code>hexo d -g
-</code></pre><h1 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h1><p>写文章可以使用命令界面输入命令来完成，但是我觉得有点繁琐也不利于排版，于是就没用使用这种方法。由于最终上传的是.md文件，是markdown文件，关于markdown的一些简单语法你可以上网查阅一下，还是挺简单的。(我本人在Windows系统下使用MarkdownPad 2来编辑md文件，在Mac系统下是用MacDown，都挺好用)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d -g</div></pre></td></tr></table></figure>
+<h1 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h1><p>写文章可以使用命令界面输入命令来完成，但是我觉得有点繁琐也不利于排版，于是就没用使用这种方法。由于最终上传的是.md文件，是markdown文件，关于markdown的一些简单语法你可以上网查阅一下，还是挺简单的。(我本人在Windows系统下使用MarkdownPad 2来编辑md文件，在Mac系统下是用MacDown，都挺好用)</p>
 <p>在我们写好文章之后，可以直接把.md文件放到<code>Hexo/source/_post</code>目录下，再发布到Github Pages上你就可以看到文章了，稍微有那么一会的延迟，如果你没有绑定域名的话，在浏览器输入你的仓库地址，比如我的是<code>kayleman.github.io</code>就可以看到你的博客页面了。</p>
 <p>还有一点就是在编辑文章的时候，可以在适当位置添加以下代码：</p>
-<pre><code>&lt;!-- more --&gt;
-</code></pre><p>more以上是文章的摘要，在主页显示，more以下需要点击read more链接才能打开全文显示，可以有效避免博客主页被过多地占用。例如我的博客效果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!-- more --&gt;</div></pre></td></tr></table></figure>
+<p>more以上是文章的摘要，在主页显示，more以下需要点击read more链接才能打开全文显示，可以有效避免博客主页被过多地占用。例如我的博客效果如下：</p>
 <p><img src="http://wx2.sinaimg.cn/mw690/aa23e93egy1fh24lea3suj20ir0b2mxv.jpg" alt="使用了more的效果"></p>
 <h1 id="Hexo主题的更换"><a href="#Hexo主题的更换" class="headerlink" title="Hexo主题的更换"></a>Hexo主题的更换</h1><p>前面已经看到了，初始化的页面是非常丑的，我们可以更换Hexo的主题，在知乎上有这个话题，可以<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">点击这里</a>去参考一下。找到喜欢的主题后安装主题就是一条命令，比如我使用的是icarus主题</p>
-<pre><code>git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus
-</code></pre><p>从git上clone下来放到<code>Hexo/theme</code>路径下。然后打开<code>Hexo/_config.yml</code>文件，修改里面<code>theme</code>的参数为<code>icarus</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus</div></pre></td></tr></table></figure>
+<p>从git上clone下来放到<code>Hexo/theme</code>路径下。然后打开<code>Hexo/_config.yml</code>文件，修改里面<code>theme</code>的参数为<code>icarus</code>。</p>
 <p>之后再根据主题作者Github上提供的方法一步步配置<code>icarus</code>文件夹里面的<code>_config.yml</code>文件。</p>
 <p>至于具体的主题配置和一些模块的设置我会再详细地写一篇博客，这里不再赘述。</p>
 <h1 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h1><p>要绑定域名，首先你要去注册一个域名，我是在万网注册的，你可以<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">点击这里</a>进行注册，或者去其它的域名注册商那注册。对于域名的具体购买等步骤这里也不再赘述。</p>

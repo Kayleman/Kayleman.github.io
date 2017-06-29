@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Kayle&#39;s Blog">
 <meta property="og:description" content="前言由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢. 设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，br">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw690/aa23e93egy1fgw3mtnzlnj24442bbu10.jpg">
-<meta property="og:updated_time" content="2017-06-24T05:09:54.000Z">
+<meta property="og:updated_time" content="2017-06-29T08:48:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04虚拟机设置固定IP的方法">
 <meta name="twitter:description" content="前言由于经常需要直接在主机通过IP连接到虚拟机,所以上网搜了一些Ubuntu设置固定IP上网的方法,其中遇到了一些问题,参考了大神的博客内容,之后会列出原文链接,如果侵犯了您的权利,请与我联系删除,谢谢. 设置固定IP的方法很多，大家都知道虚拟机上网有三种模式：bridged、host-only和NAT， 其中NAT模式对应VMnet8虚拟网络，host-only模式对应VMnet1虚拟网络，br">
@@ -278,25 +278,30 @@ ga('send', 'pageview');
 <p><img src="http://img.blog.csdn.net/20170322153032511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="虚拟网络编辑器"></p>
 <h1 id="3-进入到Ubuntu系统中配置网络"><a href="#3-进入到Ubuntu系统中配置网络" class="headerlink" title="3. 进入到Ubuntu系统中配置网络"></a>3. 进入到Ubuntu系统中配置网络</h1><p>主要配置下面三个方面的内容：</p>
 <ol>
-<li>修改文件/etc/network/interfaces，这里是IP、网关、掩码等的一些配置；</li>
-<li>修改文件/etc/resolv.conf，这个文件保存DNS的有关信息；</li>
-<li>解决resolv.conf被重写问题；</li>
+<li>修改文件<code>/etc/network/interfaces</code>，这里是IP、网关、掩码等的一些配置；</li>
+<li>修改文件<code>/etc/resolv.conf</code>，这个文件保存DNS的有关信息；</li>
+<li>解决<code>resolv.conf</code>被重写问题；</li>
 <li>重启虚拟机网络</li>
 </ol>
-<h2 id="1-修改文件-etc-network-interfaces"><a href="#1-修改文件-etc-network-interfaces" class="headerlink" title="(1).修改文件/etc/network/interfaces"></a>(1).修改文件/etc/network/interfaces</h2><p>输入命令:<code>sudo vi /etc/network/interfaces</code><br>或者:<code>sudo gedit /etc/network/interfaces</code></p>
+<h2 id="1-修改文件-etc-network-interfaces"><a href="#1-修改文件-etc-network-interfaces" class="headerlink" title="(1).修改文件/etc/network/interfaces"></a>(1).修改文件/etc/network/interfaces</h2><p>输入命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/network/interfaces</div></pre></td></tr></table></figure></p>
+<p>或者:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gedit /etc/network/interfaces</div></pre></td></tr></table></figure>
 <p>配置如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#interfaces(5) file used by ifup(8) and ifdown(8)</div><div class="line">auto lo</div><div class="line">iface lo inet loopback</div><div class="line">auto ens33</div><div class="line"></div><div class="line">iface ens33 inet static</div><div class="line">address 192.168.8.100</div><div class="line">netmask 255.255.255.0</div><div class="line">gateway 192.168.8.2</div><div class="line"></div><div class="line">dns-nameservers 8.8.8.8</div></pre></td></tr></table></figure>
-<p>其中较新版本的比如我的Ubuntu16.04 就是ens33,有的版本是eth0, 具体可以在终端输入<code>ifconfig</code>命令查看,如图:</p>
+<p>其中较新版本的比如我的Ubuntu16.04 就是<code>ens33</code>,有的版本是<code>eth0</code>, 具体可以在终端输入<code>ifconfig</code>命令查看,如图:</p>
 <p><img src="http://img.blog.csdn.net/20170322155221506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2VpdWxhb21p/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>另外其中的网关要和虚拟网络编辑器中设置的一致,一般好像为192.168.XXX.2</p>
-<p>上面最后一行设置的DNS不是必要的,可在下一步设置,这一步的优先级比resolv.conf中高,会优先在这一步读取DNS,如果没有配置才会去resolve.conf里面查找.</p>
-<h2 id="2-修改文件-etc-resolv-conf"><a href="#2-修改文件-etc-resolv-conf" class="headerlink" title="(2)修改文件/etc/resolv.conf"></a>(2)修改文件/etc/resolv.conf</h2><p>输入命令:<code>sudo vi /etc/resolv.conf</code> 或 <code>sudo gedit /etc/resolv.conf</code></p>
+<p>另外其中的网关要和虚拟网络编辑器中设置的一致,一般好像为<code>192.168.XXX.2</code></p>
+<p>上面最后一行设置的DNS不是必要的,可在下一步设置,这一步的优先级比<code>resolv.conf</code>中高,会优先在这一步读取DNS,如果没有配置才会去<code>resolve.conf</code>里面查找.</p>
+<h2 id="2-修改文件-etc-resolv-conf"><a href="#2-修改文件-etc-resolv-conf" class="headerlink" title="(2)修改文件/etc/resolv.conf"></a>(2)修改文件/etc/resolv.conf</h2><p>输入命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/resolv.conf</div></pre></td></tr></table></figure>
+<p>或 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gedit /etc/resolv.conf</div></pre></td></tr></table></figure>
 <p>配置如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nameserver 8.8.8.8</div></pre></td></tr></table></figure>
 <p>这里具体DNS因人而异</p>
-<h2 id="3-解决resolv-conf被重写问题"><a href="#3-解决resolv-conf被重写问题" class="headerlink" title="(3)解决resolv.conf被重写问题"></a>(3)解决resolv.conf被重写问题</h2><p>第二步中你虽然配置了DNS，但是每次重启虚拟机或重启网络后<code>/etc/resolv.conf</code>文件就会被重写，也就是又恢复原样了，你以前的配置就不存在了，每次都要手动配置是极不可取的，所以这步是必须的，首先我们要搞清楚resolv.conf被重写的原因和机制，这在不同 Ubuntu版本下有所差异。</p>
+<h2 id="3-解决resolv-conf被重写问题"><a href="#3-解决resolv-conf被重写问题" class="headerlink" title="(3)解决resolv.conf被重写问题"></a>(3)解决resolv.conf被重写问题</h2><p>第二步中你虽然配置了DNS，但是每次重启虚拟机或重启网络后<code>/etc/resolv.conf</code>文件就会被重写，也就是又恢复原样了，你以前的配置就不存在了，每次都要手动配置是极不可取的，所以这步是必须的，首先我们要搞清楚<code>resolv.conf</code>被重写的原因和机制，这在不同 Ubuntu版本下有所差异。</p>
 <p>在这一步,教程原文上有两种办法,第一种是根据不同系统版本来采取不同的办法,第二种是于版本无关,通用的做法.我选了第二种,如果想看第一种方法,可以在文末的原文链接里去看.</p>
-<p>第二种办法就是在前面第(1)步中在最后面直接加上你的DNS地址,因为interfaces优先级比resolv.conf高,会优先看interfaces里面的DNS.</p>
+<p>第二种办法就是在前面第(1)步中在最后面直接加上你的DNS地址,因为<code>interfaces</code>优先级比<code>resolv.conf</code>高,会优先看<code>interfaces</code>里面的DNS.</p>
 <h2 id="4-重启虚拟机网络"><a href="#4-重启虚拟机网络" class="headerlink" title="(4)重启虚拟机网络"></a>(4)重启虚拟机网络</h2><p>配置完成后需要重启一下网络:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service networking restart</div></pre></td></tr></table></figure>
 <p>或者</p>
