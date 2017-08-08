@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kayleman.github.io/"/>
-  <updated>2017-07-20T10:52:46.000Z</updated>
+  <updated>2017-08-08T07:50:37.000Z</updated>
   <id>http://kayleman.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kayleman.github.io/2017/07/20/%E5%A6%82%E4%BD%95%E5%B0%86iPhone%E5%A4%87%E4%BB%BD%E5%88%B0%E5%A4%96%E7%BD%AE%E7%A1%AC%E7%9B%98%E4%B8%AD/"/>
     <id>http://kayleman.github.io/2017/07/20/如何将iPhone备份到外置硬盘中/</id>
     <published>2017-07-20T10:05:18.000Z</published>
-    <updated>2017-07-20T10:52:46.000Z</updated>
+    <updated>2017-08-08T07:50:37.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为偶然发现在Web上登录iCloud使用”查找我的iPhone”功能不需要进行二次验证, 可以直接登录, 并且能够锁定自己的设备, 甚至还能够直接抹除设备上的数据, 为了避免在密码泄露的时候被不怀好意的人抹除数据造成损失, 于是决定将iPhone的数据备份.</p>
 <p>很多人可能都只是用iCloud进行数据的备份, 但是iCloud免费空间太小不说, 而且备份极其不稳定, 经常不能成功备份. 它所显示的备份成功, 其实有时候并没有真正地备份成功. 有次在恢复备份数据的时候才发现没有备份成功, 导致很多数据丢失.</p>
@@ -48,6 +48,7 @@
 <p><img src="http://wx2.sinaimg.cn/mw690/aa23e93egy1fhqj7sqrujj20bj04baac.jpg" alt="文件夹出现一个小箭头"></p>
 <h1 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h1><p>打开iTunes, 选择备份到本电脑, 立即备份即可自动备份到外置硬盘.</p>
 <p><img src="http://wx1.sinaimg.cn/mw690/aa23e93egy1fhqjny2conj20my07kdho.jpg" alt="备份"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://sspai.com/post/33524" target="_blank" rel="external">https://sspai.com/post/33524</a></p>
 ]]></content>
     
     <summary type="html">
