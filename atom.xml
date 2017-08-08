@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kayleman.github.io/"/>
-  <updated>2017-08-08T07:50:37.000Z</updated>
+  <updated>2017-08-08T10:30:01.000Z</updated>
   <id>http://kayleman.github.io/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>修改Windows命令界面字体</title>
+    <link href="http://kayleman.github.io/2017/08/08/%E4%BF%AE%E6%94%B9Windows%E5%91%BD%E4%BB%A4%E7%95%8C%E9%9D%A2%E5%AD%97%E4%BD%93/"/>
+    <id>http://kayleman.github.io/2017/08/08/修改Windows命令界面字体/</id>
+    <published>2017-08-08T10:26:59.000Z</published>
+    <updated>2017-08-08T10:30:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>平时在使用Windows的时候经常会用到命令界面，但是Windows命令界面所用的默认字体真的是看着很不舒服，于是就去找了一下修改Windows命令界面字体的方法。</p>
+<a id="more"></a>
+<h1 id="默认情况"><a href="#默认情况" class="headerlink" title="默认情况"></a>默认情况</h1><p>在默认的情况下，命令界面的显示效果如下图所示：</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/aa23e93egy1ficfb2mr20j20it0fe0tx.jpg" alt="默认显示效果"></p>
+<p>这个字体让我看着很不舒服，在窗口的顶端边栏右键，在弹出的菜单中选择属性，可以看到以下所示的属性：</p>
+<p>当前的代码页是936：</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/aa23e93egy1ficfb38tcrj20aq0ca0ta.jpg" alt="当前代码页"></p>
+<p>字体选项界面显示的是：</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/aa23e93egy1ficfb3tnwrj20aq0camxo.jpg" alt="字体选项界面"></p>
+<p>可以看到默认的只有两种字体可以选择，并且同样都是看着不舒服的字体。</p>
+<h1 id="修改默认字体"><a href="#修改默认字体" class="headerlink" title="修改默认字体"></a>修改默认字体</h1><p>我们可以打开注册表看看，打开注册表定位到<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont</code>就可以看到Windows下的其它字体。</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/aa23e93egy1ficfb69evgj20u00hd76s.jpg" alt="注册表"></p>
+<p>其中的000和0000是我后来自己添加进去的，其它都是默认存在的字体。我们可以看到有Consolas字体，这个字体看着还是挺舒服的。0和00两项都是代码页437页可用的字体，可以在命令界面输入<code>chcp [codepage]</code>来进行切换，例如下图就是输入<code>chcp 437</code>后得到的结果。如图：</p>
+<p><img src="http://wx3.sinaimg.cn/mw690/aa23e93egy1ficfb4wutwj20it0aowf5.jpg" alt="切换代码页"></p>
+<p>现在可以再来看一下属性页面，当前代码页和可选字体都已经发生了改变。</p>
+<p>现在的当前代码页是437：</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/aa23e93egy1ficfb43grmj20aq0cagm5.jpg" alt="切换后的代码页"></p>
+<p>可选择字体多出了Consolas和Lucida Console，还有一个Bitstream Vera Sans Mono字体是我在注册表添加了一个值所多出来的。</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/aa23e93egy1ficfb4lkzyj20aq0camxq.jpg" alt="切换后的可选字体"></p>
+<p>我们可以看一下选择了Consolas之后的效果：</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/aa23e93egy1ficfb1tkibj20it0aotab.jpg" alt="Consolas效果"></p>
+<p>看着感觉还不错，如果你还想要用别的字体的话，就需要在注册表中添加命令行程序可用的字体了。首先按上面的步骤打开注册表，增加一项名字为000的字符串值，并将其值设置为你想要用的字体的名字（当然这个字体是要你的系统字体中有的，我专门下载了Mac OS上的专有字体Monaco想进行更换，但是并没有出现这个字体选项，可能不属于系统自带的字体吧。），可以看到我增加了一个名为Bitstream Vera Sans Mono的字体，可以看到效果图如下：</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/aa23e93egy1ficfb26yu2j20l10d640o.jpg" alt="Bitstream Vera Sans Mono字体效果"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/kangflict/p/4111010.html" target="_blank" rel="external">http://www.cnblogs.com/kangflict/p/4111010.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;平时在使用Windows的时候经常会用到命令界面，但是Windows命令界面所用的默认字体真的是看着很不舒服，于是就去找了一下修改Windows命令界面字体的方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="备忘" scheme="http://kayleman.github.io/categories/%E5%A4%87%E5%BF%98/"/>
+    
+    
+      <category term="Windows7" scheme="http://kayleman.github.io/tags/Windows7/"/>
+    
+  </entry>
   
   <entry>
     <title>如何将iPhone/iPad备份到外置硬盘中</title>
