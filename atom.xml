@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kayleman.github.io/"/>
-  <updated>2017-08-08T10:30:01.000Z</updated>
+  <updated>2017-09-07T02:55:20.000Z</updated>
   <id>http://kayleman.github.io/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java和python的代码命名大小写规范</title>
+    <link href="http://kayleman.github.io/2017/09/07/%E4%BB%A3%E7%A0%81%E5%91%BD%E5%90%8D%E5%A4%A7%E5%B0%8F%E5%86%99%E8%A7%84%E8%8C%83/"/>
+    <id>http://kayleman.github.io/2017/09/07/代码命名大小写规范/</id>
+    <published>2017-09-07T02:31:40.000Z</published>
+    <updated>2017-09-07T02:55:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>代码命名这种利人利己的事情,还是要好好改正学习一下的.找了一篇比较简洁明了的博客,并修改了一些错误,记录一下备忘.最后再附上一个函数命名查询的网站.可直接输入中文查询.妈妈再也不用担心我想不出函数名啦.</p>
+<a id="more"></a>
+<h1 id="Java命名规范"><a href="#Java命名规范" class="headerlink" title="Java命名规范"></a>Java命名规范</h1><ol>
+<li><strong>项目名称：</strong>全部小写</li>
+<li><strong>常量：</strong>都用大写。如：public static final String DBDRIVER = “…..”;</li>
+<li><strong>类名：</strong>大写开头： 如：public class Person{}</li>
+<li><strong>属性名：</strong>小写：如：String personName = “Kayle”;</li>
+<li><strong>方法名：</strong>小写：如：public String getPersonName() {return this.personName}</li>
+<li><strong>构造函数名：</strong>与类名称一样，所以也是大写开头。</li>
+<li><strong>包名：</strong>所有的单词都是小写：如：import java.io.*</li>
+</ol>
+<h1 id="Python命名规范"><a href="#Python命名规范" class="headerlink" title="Python命名规范"></a>Python命名规范</h1><ol>
+<li><strong>模块名：</strong>小写字母，单词之间用_分割  如：rivet_detection</li>
+<li><strong>包名：</strong>小写字母，单词之间用_分割 如：rivet_detection</li>
+<li><strong>类名：</strong>单词首字母大写 如：python class LogRecord(object):</li>
+<li><strong>普通变量：</strong>小写字母，单词之间用_分割  如：exc_info</li>
+<li><strong>实例变量：</strong>以_开头，小写字母，单词之间用_分割  如:_exc_info，以一个下划线开头的标识符(_xxx)，不能访问的类属性，但可通过类提供的接口进行访问，不会被语句 “from module import *” 语句加载</li>
+<li><strong>私有实例变量：</strong>以__开头（2个下划线），小写字母，单词之间用_分割  如:__private_var ，外部访问会报错</li>
+<li><strong>专有变量：</strong>__开头（2个下划线），__结尾（2个下划线），一般为python的自有变量，不要以这种方式命名  如:__doc__ ，是系统定义的，具有特殊意义的标识符</li>
+<li><strong>普通函数：</strong>小写字母，单词之间用_分割： 如:get_name()</li>
+<li><strong>私有函数：</strong>以__开头（2个下划线），小写字母，单词之间用分割 如:__get_name() ，外部访问会报错.</li>
+</ol>
+<h1 id="函数命名查询网站"><a href="#函数命名查询网站" class="headerlink" title="函数命名查询网站"></a>函数命名查询网站</h1><p><a href="http://unbug.github.io/codelf/" target="_blank" rel="external">http://unbug.github.io/codelf/</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/quiet_girl/article/details/73896791" target="_blank" rel="external">http://blog.csdn.net/quiet_girl/article/details/73896791</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;代码命名这种利人利己的事情,还是要好好改正学习一下的.找了一篇比较简洁明了的博客,并修改了一些错误,记录一下备忘.最后再附上一个函数命名查询的网站.可直接输入中文查询.妈妈再也不用担心我想不出函数名啦.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="备忘" scheme="http://kayleman.github.io/categories/%E5%A4%87%E5%BF%98/"/>
+    
+    
+      <category term="Java" scheme="http://kayleman.github.io/tags/Java/"/>
+    
+      <category term="python" scheme="http://kayleman.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>修改Windows命令界面字体</title>
