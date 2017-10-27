@@ -171,7 +171,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                8
+                9
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,154 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-Python2到Python3代码的转换工具2to3.py" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2017/10/27/Python2到Python3代码的转换工具2to3.py/" itemprop="url">
+            <img src="http://wx4.sinaimg.cn/mw690/aa23e93egy1ficicooo7dj22801e04qp.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/10/27/Python2到Python3代码的转换工具2to3.py/">Python2到Python3代码的转换工具2to3.py</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/10/27/Python2到Python3代码的转换工具2to3.py/">
+            <time datetime="2017-10-27T08:40:12.000Z" itemprop="datePublished">2017-10-27</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/备忘/">备忘</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/python/">python</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经常会遇到需要将Python2代码转换成Python3的情况.如果只是简单的改改print,那么直接手动改就行了,但是如果有很多地方需要修改就比较令人头疼.最近才知道Python官方就已经准备了一个转换工具:<code>2to3.py</code></p>
+<p>注:在Windows环境下</p></p>
+            <p class="article-more-link">
+                <a href="/2017/10/27/Python2到Python3代码的转换工具2to3.py/#more">查看更多</a>
+            </p>
+        
+        </div>
+	
+             <footer class="article-footer">
+                  <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://kayleman.github.io/2017/10/27/Python2到Python3代码的转换工具2to3.py/" data-id="cj99ni3zo00026bspr4l2oipc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodedUrl + '" class="fa fa-qq article-share-twitter" target="_blank" title="QQ-Zone"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://service.weibo.com/share/share.php?&title=' + encodedUrl + '" class="fa fa-weibo article-share-pinterest" target="_blank" title="Weibo"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+
+                  
+    
+        <a href="http://kayleman.github.io/2017/10/27/Python2到Python3代码的转换工具2to3.py/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://kayleman.github.io/2017/10/27/Python2到Python3代码的转换工具2to3.py/">评论</a>
+    
+
+              </footer>
+        
+    </div>
+    
+</article>
+
+
+
+
     <article id="post-代码命名大小写规范" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -278,7 +426,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://kayleman.github.io/2017/09/07/代码命名大小写规范/" data-id="cj79v2g08000536sppz7h6257" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://kayleman.github.io/2017/09/07/代码命名大小写规范/" data-id="cj99ni3zz00076bsp2z1vhqfp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -425,7 +573,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://kayleman.github.io/2017/08/08/修改Windows命令界面字体/" data-id="cj79v2g0d000736spe7camez4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://kayleman.github.io/2017/08/08/修改Windows命令界面字体/" data-id="cj99ni400000a6bsprdw8acfl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -574,7 +722,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://kayleman.github.io/2017/07/20/如何将iPhone备份到外置硬盘中/" data-id="cj79v2g0l000c36spl3n1lpnc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://kayleman.github.io/2017/07/20/如何将iPhone备份到外置硬盘中/" data-id="cj99ni409000f6bspyz2p197g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -723,7 +871,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://kayleman.github.io/2017/06/29/利用Github Pages + Hexo搭建自己的博客/" data-id="cj79v2g0e000a36sp1m43e4nk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://kayleman.github.io/2017/06/29/利用Github Pages + Hexo搭建自己的博客/" data-id="cj99ni403000c6bspqwk2ywt3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -870,7 +1018,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://kayleman.github.io/2017/06/23/win7自己遇到的小问题总结/" data-id="cj79v2g0c000636splyahani2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://kayleman.github.io/2017/06/23/win7自己遇到的小问题总结/" data-id="cj99ni3zu00056bsphg69f6tq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1019,7 +1167,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://kayleman.github.io/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/" data-id="cj79v2g04000236spoz8xx3gc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://kayleman.github.io/2017/06/23/Ubuntu16.04虚拟机设置固定IP上网/" data-id="cj99ni3zy00066bsp7fcsg7ne" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1167,7 +1315,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://kayleman.github.io/2017/06/23/虚拟机里面的Ubuntu怎么和主机共享科学上网/" data-id="cj79v2g0r000f36spz4gcepz3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://kayleman.github.io/2017/06/23/虚拟机里面的Ubuntu怎么和主机共享科学上网/" data-id="cj99ni40b000i6bspj01gzn03" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1314,7 +1462,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://kayleman.github.io/2017/06/23/Mac下Vim安装NERDTree插件/" data-id="cj79v2fzv000136spn5waa2tm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://kayleman.github.io/2017/06/23/Mac下Vim安装NERDTree插件/" data-id="cj99ni3zg00016bspgz6bdvak" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1408,6 +1556,25 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2017/10/27/Python2到Python3代码的转换工具2to3.py/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://wx4.sinaimg.cn/mw690/aa23e93egy1ficicooo7dj22801e04qp.jpg)" alt="Python2到Python3代码的转换工具2to3.py" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/备忘/">备忘</a></p>
+                            <p class="item-title"><a href="/2017/10/27/Python2到Python3代码的转换工具2to3.py/" class="title">Python2到Python3代码的转换工具2to3.py</a></p>
+                            <p class="item-date"><time datetime="2017-10-27T08:40:12.000Z" itemprop="datePublished">2017-10-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2017/09/07/代码命名大小写规范/" class="thumbnail">
     
     
@@ -1481,25 +1648,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/06/23/win7自己遇到的小问题总结/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://wx3.sinaimg.cn/mw690/aa23e93egy1fgw3n03p1qj223u16oe35.jpg)" alt="Win7遇到的小问题备忘" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/备忘/">备忘</a></p>
-                            <p class="item-title"><a href="/2017/06/23/win7自己遇到的小问题总结/" class="title">Win7遇到的小问题备忘</a></p>
-                            <p class="item-date"><time datetime="2017-06-23T05:25:21.000Z" itemprop="datePublished">2017-06-23</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1509,7 +1657,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/备忘/">备忘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/科学上网/">科学上网</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/备忘/">备忘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/科学上网/">科学上网</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1518,7 +1666,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -1527,7 +1675,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows7/">Windows7</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟机/">虚拟机</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows7/">Windows7</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科学上网/">科学上网</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟机/">虚拟机</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1536,7 +1684,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Windows7/" style="font-size: 20px;">Windows7</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/虚拟机/" style="font-size: 10px;">虚拟机</a>
+            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Windows7/" style="font-size: 20px;">Windows7</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/虚拟机/" style="font-size: 10px;">虚拟机</a>
         </div>
     </div>
 

@@ -5,18 +5,21 @@
     <meta name="google-site-verification" content="8vMB1D4YT3WA0DEIrixMuxsfB7PYhQ2Dax3FqpZMXrk" />
     <meta name="baidu-site-verification" content="bPGE7e1WRM" />
     
-    <title>About | Kayle&#39;s Blog</title>
+    <title>Python2到Python3代码的转换工具2to3.py | Kayle&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="昔日寒山问拾得曰：世间有人谤我、欺我、辱我、笑我、轻我、贱我、恶我、骗我、如何处治乎？ 拾得曰：只要忍他、让他、由他、避他、耐他、敬他、不要理他，再待几年你且看他。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="http://kayleman.github.io/about/index.html">
+    <meta name="description" content="前言经常会遇到需要将Python2代码转换成Python3的情况.如果只是简单的改改print,那么直接手动改就行了,但是如果有很多地方需要修改就比较令人头疼.最近才知道Python官方就已经准备了一个转换工具:2to3.py 注:在Windows环境下">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python2到Python3代码的转换工具2to3.py">
+<meta property="og:url" content="http://kayleman.github.io/2017/10/27/Python2到Python3代码的转换工具2to3.py/index.html">
 <meta property="og:site_name" content="Kayle&#39;s Blog">
-<meta property="og:description" content="昔日寒山问拾得曰：世间有人谤我、欺我、辱我、笑我、轻我、贱我、恶我、骗我、如何处治乎？ 拾得曰：只要忍他、让他、由他、避他、耐他、敬他、不要理他，再待几年你且看他。">
-<meta property="og:updated_time" content="2017-06-24T04:59:38.000Z">
+<meta property="og:description" content="前言经常会遇到需要将Python2代码转换成Python3的情况.如果只是简单的改改print,那么直接手动改就行了,但是如果有很多地方需要修改就比较令人头疼.最近才知道Python官方就已经准备了一个转换工具:2to3.py 注:在Windows环境下">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/aa23e93egy1ficicooo7dj22801e04qp.jpg">
+<meta property="og:updated_time" content="2017-10-27T08:43:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About">
-<meta name="twitter:description" content="昔日寒山问拾得曰：世间有人谤我、欺我、辱我、笑我、轻我、贱我、恶我、骗我、如何处治乎？ 拾得曰：只要忍他、让他、由他、避他、耐他、敬他、不要理他，再待几年你且看他。">
+<meta name="twitter:title" content="Python2到Python3代码的转换工具2to3.py">
+<meta name="twitter:description" content="前言经常会遇到需要将Python2代码转换成Python3的情况.如果只是简单的改改print,那么直接手动改就行了,但是如果有很多地方需要修改就比较令人头疼.最近才知道Python官方就已经准备了一个转换工具:2to3.py 注:在Windows环境下">
+<meta name="twitter:image" content="http://wx4.sinaimg.cn/mw690/aa23e93egy1ficicooo7dj22801e04qp.jpg">
     
 
     
@@ -212,18 +215,50 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Python2到Python3代码的转换工具2to3.py" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
+        
+            
+	
+		<img src="http://wx4.sinaimg.cn/mw690/aa23e93egy1ficicooo7dj22801e04qp.jpg" class="article-banner" />
+	
+
+
+
         
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-            About
+            Python2到Python3代码的转换工具2to3.py
         </h1>
     
 
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/10/27/Python2到Python3代码的转换工具2to3.py/">
+            <time datetime="2017-10-27T08:40:12.000Z" itemprop="datePublished">2017-10-27</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/备忘/">备忘</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/python/">python</a>
+    </div>
+
+                    </div>
                 
             </header>
         
@@ -231,15 +266,112 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>昔日寒山问拾得曰：世间有人谤我、欺我、辱我、笑我、轻我、贱我、恶我、骗我、如何处治乎？</p>
-<p>拾得曰：只要忍他、让他、由他、避他、耐他、敬他、不要理他，再待几年你且看他。</p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经常会遇到需要将Python2代码转换成Python3的情况.如果只是简单的改改print,那么直接手动改就行了,但是如果有很多地方需要修改就比较令人头疼.最近才知道Python官方就已经准备了一个转换工具:<code>2to3.py</code></p>
+<p>注:在Windows环境下</p>
+<a id="more"></a>
+<h1 id="所在位置"><a href="#所在位置" class="headerlink" title="所在位置"></a>所在位置</h1><p>无论你的Python是官网下载安装的还是Anaconda中带的.都可以在<code>{Python_HOME}\Tools\scripts</code>里面找到<code>2to3.py</code></p>
+<h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><p>比如说我有一个Python2的<code>.py</code>文件需要修改,路径为:<code>G:\Code\OSVOS-TensorFlow\osvos.py</code></p>
+<p>首先在终端进入到<code>2to3.py</code>这个文件所在的文件夹.也就是<code>{Python_HOME}\Tools\scripts</code>,我这里的Python是Anaconda3里的,所以我的路径是<code>G:\Anaconda3\Tools\scripts</code></p>
+<p>输入<code>python 2to3.py -w G:\Code\OSVOS-TensorFlow\osvos.py</code><br><code>-w</code>这个参数是为了直接生成一个新的<code>osvos.py</code>文件代替我原来的<code>osvos.py</code>文件,同时会把原来的<code>osvos.py</code>文件加一个<code>.bak</code>后缀备份.于是目录下会多了一个<code>osvos.py.bak</code>文件,如果不想生成<code>.bak</code>文件,在运行的时候加上<code>-n</code>即可.如果不想看那一堆输出内容,加上<code>-no-diffs</code>即可.</p>
+<p>如果要了解更多参数的使用方法,可以直接输入:<code>python 2to3.py -h</code></p>
 
         
         </div>
 	
+             <footer class="article-footer">
+                  <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://kayleman.github.io/2017/10/27/Python2到Python3代码的转换工具2to3.py/" data-id="cj99ni3zo00026bspr4l2oipc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodedUrl + '" class="fa fa-qq article-share-twitter" target="_blank" title="QQ-Zone"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://service.weibo.com/share/share.php?&title=' + encodedUrl + '" class="fa fa-weibo article-share-pinterest" target="_blank" title="Weibo"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+
+                  
+    
+        <a href="http://kayleman.github.io/2017/10/27/Python2到Python3代码的转换工具2to3.py/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://kayleman.github.io/2017/10/27/Python2到Python3代码的转换工具2to3.py/">评论</a>
+    
+
+              </footer>
+        
     </div>
     
         
+<nav id="article-nav">
+    
+    
+        <a href="/2017/09/07/代码命名大小写规范/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Java和python的代码命名大小写规范</div>
+        </a>
+    
+</nav>
+
 
     
 </article>
@@ -450,9 +582,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://kayleman.github.io/about/index.html';
+            this.page.url = 'http://kayleman.github.io/2017/10/27/Python2到Python3代码的转换工具2to3.py/';
         
-        this.page.identifier = 'undefined';
+        this.page.identifier = 'Python2到Python3代码的转换工具2to3.py';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
