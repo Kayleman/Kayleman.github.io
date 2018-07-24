@@ -5,17 +5,21 @@
     <meta name="google-site-verification" content="8vMB1D4YT3WA0DEIrixMuxsfB7PYhQ2Dax3FqpZMXrk" />
     <meta name="baidu-site-verification" content="bPGE7e1WRM" />
     
-    <title>标签: 插件 | Kayle&#39;s Blog</title>
+    <title>Spring MVC执行流程及工作原理 | Kayle&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Record my learning process and share it.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kayle&#39;s Blog">
-<meta property="og:url" content="http://kayleman.github.io/tags/插件/index.html">
+    <meta name="description" content="前言本文用图文结合的方式介绍了Spring MVC执行流程及工作原理。">
+<meta name="keywords" content="python,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring MVC执行流程及工作原理">
+<meta property="og:url" content="http://kayleman.github.io/2018/07/24/Spring MVC执行流程及工作原理/index.html">
 <meta property="og:site_name" content="Kayle&#39;s Blog">
-<meta property="og:description" content="Record my learning process and share it.">
+<meta property="og:description" content="前言本文用图文结合的方式介绍了Spring MVC执行流程及工作原理。">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/aa23e93egy1ficiga8cp3j21400p01ea.jpg">
+<meta property="og:updated_time" content="2018-07-24T02:55:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kayle&#39;s Blog">
-<meta name="twitter:description" content="Record my learning process and share it.">
+<meta name="twitter:title" content="Spring MVC执行流程及工作原理">
+<meta name="twitter:description" content="前言本文用图文结合的方式介绍了Spring MVC执行流程及工作原理。">
+<meta name="twitter:image" content="http://wx4.sinaimg.cn/mw690/aa23e93egy1ficiga8cp3j21400p01ea.jpg">
     
 
     
@@ -211,50 +215,214 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#插件</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Spring MVC执行流程及工作原理" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="http://wx4.sinaimg.cn/mw690/aa23e93egy1ficiga8cp3j21400p01ea.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/06/23/Mac下Vim安装NERDTree插件/">Mac下Vim安装NERDTree插件的方法</a>
+        <h1 class="article-title" itemprop="name">
+            Spring MVC执行流程及工作原理
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/06/23/Mac下Vim安装NERDTree插件/">
-            <time datetime="2017-06-23T05:25:15.000Z" itemprop="datePublished">2017-06-23</time>
+        <a href="/2018/07/24/Spring MVC执行流程及工作原理/">
+            <time datetime="2018-07-24T02:47:34.000Z" itemprop="datePublished">2018-07-24</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Vim/">Vim</a>
+        <a class="article-category-link" href="/categories/备忘/">备忘</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Vim/">Vim</a>, <a class="tag-link" href="/tags/插件/">插件</a>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/python/">python</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文用图文结合的方式介绍了Spring MVC执行流程及工作原理。</p>
+<a id="more"></a>
+<h1 id="Spring-MVC执行流程图："><a href="#Spring-MVC执行流程图：" class="headerlink" title="Spring MVC执行流程图："></a>Spring MVC执行流程图：</h1><p><img src="http://wx1.sinaimg.cn/large/aa23e93egy1ftkr5wplydj20ru0e6753.jpg" alt="Spring MVC执行流程"></p>
+<h1 id="Spring-MVC执行流程解释"><a href="#Spring-MVC执行流程解释" class="headerlink" title="Spring MVC执行流程解释:"></a>Spring MVC执行流程解释:</h1><ol>
+<li><p>用户发送请求至前端控制器DispatcherServlet</p>
+</li>
+<li><p>DispatcherServlet收到请求调用处理器映射器HandlerMapping。</p>
+</li>
+<li><p>处理器映射器根据请求url找到具体的处理器，生成处理器执行链HandlerExecutionChain(包括处理器对象和处理器拦截器)一并返回给DispatcherServlet。</p>
+</li>
+<li><p>DispatcherServlet根据处理器Handler获取处理器适配器HandlerAdapter执行HandlerAdapter处理一系列的操作，如：参数封装，数据格式转换，数据验证等操作</p>
+</li>
+<li><p>执行处理器Handler(Controller，也叫页面控制器)。</p>
+</li>
+<li><p>Handler执行完成返回ModelAndView</p>
+</li>
+<li><p>HandlerAdapter将Handler执行结果ModelAndView返回到DispatcherServlet</p>
+</li>
+<li><p>DispatcherServlet将ModelAndView传给ViewReslover视图解析器</p>
+</li>
+<li><p>ViewReslover解析后返回具体View</p>
+</li>
+<li><p>DispatcherServlet对View进行渲染视图（即将模型数据model填充至视图中）。</p>
+</li>
+<li><p>DispatcherServlet响应用户。</p>
+</li>
+</ol>
+<h1 id="组件说明："><a href="#组件说明：" class="headerlink" title="组件说明："></a>组件说明：</h1><ol>
+<li><p>DispatcherServlet：前端控制器。用户请求到达前端控制器，它就相当于MVC模式中的C，DispatcherServlet是整个流程控制的中心，由它调用其它组件处理用户的请求，DispatcherServlet的存在降低了组件之间的耦合性,系统扩展性提高。由框架实现</p>
+</li>
+<li><p>HandlerMapping：处理器映射器。HandlerMapping负责根据用户请求的url找到Handler即处理器，Spring MVC提供了不同的映射器实现不同的映射方式，根据一定的规则去查找,例如：xml配置方式，实现接口方式，注解方式等。由框架实现</p>
+</li>
+<li><p>Handler：处理器。Handler 是继DispatcherServlet前端控制器的后端控制器，在DispatcherServlet的控制下Handler对具体的用户请求进行处理。<strong>由于Handler涉及到具体的用户业务请求，所以一般情况需要程序员根据业务需求开发Handler</strong>。</p>
+</li>
+<li><p>HandlAdapter：处理器适配器。通过HandlerAdapter对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。由框架实现。</p>
+</li>
+<li><p>ModelAndView是Spring MVC的封装对象，将Model和View封装在一起。</p>
+</li>
+<li><p>ViewResolver：视图解析器。ViewResolver负责将处理结果生成View视图，ViewResolver首先根据逻辑视图名解析成物理视图名即具体的页面地址，再生成View视图对象，最后对View进行渲染将处理结果通过页面展示给用户。</p>
+</li>
+<li><p>View:是Spring MVC的封装对象，是一个接口, Spring MVC框架提供了很多的View视图类型，包括：jspview，pdfview,jstlView、freemarkerView、pdfView等。一般情况下需要通过页面标签或页面模版技术将模型数据通过页面展示给用户，需要由程序员根据业务需求开发具体的页面。</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.jianshu.com/p/8a20c547e245" target="_blank" rel="external">https://www.jianshu.com/p/8a20c547e245</a></p>
+
+        
         </div>
-    
+	
+             <footer class="article-footer">
+                  <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://kayleman.github.io/2018/07/24/Spring MVC执行流程及工作原理/" data-id="cjjz3yjpg0000i9spbq9s0iz8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodedUrl + '" class="fa fa-qq article-share-twitter" target="_blank" title="QQ-Zone"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://service.weibo.com/share/share.php?&title=' + encodedUrl + '" class="fa fa-weibo article-share-pinterest" target="_blank" title="Weibo"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+
+                  
+    
+        <a href="http://kayleman.github.io/2018/07/24/Spring MVC执行流程及工作原理/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://kayleman.github.io/2018/07/24/Spring MVC执行流程及工作原理/">评论</a>
+    
+
+              </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/07/06/Java多线程学习/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Java多线程学习</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+
 </section>
             
                 
@@ -450,11 +618,13 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://kayleman.github.io/2018/07/24/Spring MVC执行流程及工作原理/';
+        
+        this.page.identifier = 'Spring MVC执行流程及工作原理';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'kayle-zhuang' + '.disqus.com/count.js';
+        s.src = '//' + 'kayle-zhuang' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
