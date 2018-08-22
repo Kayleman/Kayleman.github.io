@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Kayle&#39;s Blog">
 <meta property="og:description" content="前言本文主要讲了Java中多线程的使用方法、线程同步、线程数据传递、线程状态及相应的一些线程函数用法、概述等。在这之前，首先让我们来了解下在操作系统中进程和线程的区别：  进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1~n个线程。（进程是资源分配的最小单位） 线程：同一类线程共享代码和数据空间，每个线程有独立的运行栈和程序计数器(PC)，线程切换开">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw690/aa23e93egy1fgw3n03p1qj223u16oe35.jpg">
-<meta property="og:updated_time" content="2018-07-13T06:06:23.000Z">
+<meta property="og:updated_time" content="2018-08-22T03:09:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java多线程学习">
 <meta name="twitter:description" content="前言本文主要讲了Java中多线程的使用方法、线程同步、线程数据传递、线程状态及相应的一些线程函数用法、概述等。在这之前，首先让我们来了解下在操作系统中进程和线程的区别：  进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1~n个线程。（进程是资源分配的最小单位） 线程：同一类线程共享代码和数据空间，每个线程有独立的运行栈和程序计数器(PC)，线程切换开">
@@ -175,7 +175,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                13
+                14
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -274,7 +274,7 @@ ga('send', 'pageview');
 <li>多进程是指操作系统能同时运行多个任务（程序）。</li>
 <li>多线程是指在同一程序中有多个顺序流在执行。</li>
 </ul>
-<p>在Java中要想实现多线程，有两种手段，一种是继承Thread类，另外一种是实现Runable接口。(其实准确来讲，<strong>应该有三种</strong>，还有一种是实现Callable接口，并与Future、线程池结合使用。）</p>
+<p>在Java中要想实现多线程，有两种手段，一种是继承Thread类，另外一种是实现Runnable接口。(其实准确来讲，<strong>应该有三种</strong>，还有一种是实现Callable接口，并与Future、线程池结合使用。）</p>
 <a id="more"></a>
 <h1 id="一、扩展java-lang-Thread类"><a href="#一、扩展java-lang-Thread类" class="headerlink" title="一、扩展java.lang.Thread类"></a>一、扩展java.lang.Thread类</h1><p>这里继承Thread类的方法是比较常用的一种，如果说你只是想起一条线程。没有什么其它特殊的要求，那么可以使用Thread.（推荐使用Runable）。下面来看一个简单的实例:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">package algorithm.thread_learn;</div><div class="line"></div><div class="line">class Thread_Demo1 extends Thread&#123;</div><div class="line">    private String name;</div><div class="line">    public Thread_Demo1(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        for (int i = 0; i &lt; 5; i++) &#123;</div><div class="line">            System.out.println(name + &quot; Run:&quot; + i);</div><div class="line">            try &#123;</div><div class="line">                sleep((int) Math.random() * 10);</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Thread_Demo1_Main &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        Thread_Demo1 Th1 = new Thread_Demo1(&quot;A&quot;);</div><div class="line">        Thread_Demo1 Th2 = new Thread_Demo1(&quot;B&quot;);</div><div class="line">        Th1.start();</div><div class="line">        Th2.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -431,7 +431,7 @@ ga('send', 'pageview');
 <li>但是wait()和sleep()都可以通过interrupt()方法打断线程的暂停状态，从而使线程立刻抛出InterruptedException（但不建议使用该方法）。</li>
 </ul>
 <p><strong>sleep（）方法:</strong></p>
-<p>sleep()使当前线程进入停滞状态（阻塞当前线程），让出CUP的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会;</p>
+<p>sleep()使当前线程进入停滞状态（阻塞当前线程），让出CPU的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会;</p>
 <p>sleep()是Thread类的Static(静态)的方法；因此他不能改变对象的机锁，所以当在一个Synchronized块中调用Sleep()方法是，线程虽然休眠了，但是对象的机锁并木有被释放，其他线程无法访问这个对象（即使睡着也持有对象锁）。</p>
 <p>在sleep()休眠时间期满后，该线程不一定会立即执行，这是因为其它线程可能正在运行而且没有被调度为放弃执行，除非此线程具有更高的优先级。 </p>
 <p><strong>wait（）方法:</strong></p>
@@ -640,6 +640,25 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/07/25/Java面试笔记汇总/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/25/Java面试笔记汇总/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2018-07-25T05:08:56.000Z" itemprop="datePublished">2018-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2018/07/24/Spring MVC执行流程及工作原理/" class="thumbnail">
     
     
@@ -713,25 +732,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/10/27/Python2到Python3代码的转换工具2to3.py/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://wx4.sinaimg.cn/mw690/aa23e93egy1ficicooo7dj22801e04qp.jpg)" alt="Python2到Python3代码的转换工具2to3.py" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/备忘/">备忘</a></p>
-                            <p class="item-title"><a href="/2017/10/27/Python2到Python3代码的转换工具2to3.py/" class="title">Python2到Python3代码的转换工具2to3.py</a></p>
-                            <p class="item-date"><time datetime="2017-10-27T08:40:12.000Z" itemprop="datePublished">2017-10-27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -750,7 +750,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">5</span></li></ul>
         </div>
     </div>
 

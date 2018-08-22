@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kayleman.github.io/"/>
-  <updated>2018-07-24T02:57:17.000Z</updated>
+  <updated>2018-07-29T08:11:04.000Z</updated>
   <id>http://kayleman.github.io/</id>
   
   <author>
@@ -14,6 +14,142 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://kayleman.github.io/2018/07/25/Java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/"/>
+    <id>http://kayleman.github.io/2018/07/25/Java面试笔记汇总/</id>
+    <published>2018-07-25T05:08:56.000Z</published>
+    <updated>2018-07-29T08:11:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java面试笔记汇总"><a href="#Java面试笔记汇总" class="headerlink" title="Java面试笔记汇总"></a>Java面试笔记汇总</h1><p><strong>1.Spring MVC执行流程及工作原理</strong></p>
+<p><a href="http://kayle.win/2018/07/24/Spring%20MVC%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" target="_blank" rel="external">http://kayle.win/2018/07/24/Spring%20MVC%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</a></p>
+<p><strong>2.Java多线程总结</strong></p>
+<p><a href="http://kayle.win/2018/07/06/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0/" target="_blank" rel="external">http://kayle.win/2018/07/06/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0/</a></p>
+<p><strong>3.三次握手与四次挥手</strong></p>
+<p><a href="http://kayle.win/2018/06/28/%E7%90%86%E8%A7%A3TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" target="_blank" rel="external">http://kayle.win/2018/06/28/%E7%90%86%E8%A7%A3TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</a></p>
+<p><strong>4.100的阶乘末尾有几个0？</strong></p>
+<p>主要是算有多少对2 * 5，因为每2个数就可以被2整除，5个数才能被5整除，所以2的数量肯定大于5的数量，直接求5的个数就行。1-100中包含5的有5，10，15，20…95，100。有20个，其中25，50，75，100都有2个5，所以再加4个，总共24个。所以100的阶乘有24个0。</p>
+<p><strong>5.在Java中String类为什么要设计成final？</strong></p>
+<p><a href="https://blog.csdn.net/u013905744/article/details/52414111" target="_blank" rel="external">https://blog.csdn.net/u013905744/article/details/52414111</a></p>
+<ul>
+<li><p>主要好处就是安全，String类型字符串比如说a=”test“经过赋值后b=a，c=b，分别传入三个函数，分别为在字符串后面加a，b，c。String类型的输出结果为testa，testb，testc。而StringBuffer输出结果为，testa，testab，testabc。</p>
+<p>  还有在HashSet里面，StringBuilder型变量sb1和sb2分别指向了堆内的字面量”aaa”和”aaabbb”。把他们都插入一个HashSet。到这一步没问题。但如果后面我把变量sb3也指向sb1的地址，再改变sb3的值，因为StringBuilder没有不可变性的保护，sb3直接在原先”aaa”的地址上改。导致sb1的值也变了。这时候，HashSet上就出现了两个相等的键值”aaabbb”。破坏了HashSet键值的唯一性。所以千万不要用可变类型做HashMap和HashSet键值。</p>
+</li>
+<li><p>不可变性支持线程安全<br>还有一个大家都知道，就是在并发场景下，多个线程同时读一个资源，是不会引发竟态条件的。只有对资源做写操作才有危险。不可变对象不能被写，所以线程安全。</p>
+</li>
+<li><p>不可变性支持字符串常量池<br>最后别忘了String另外一个字符串常量池的属性。像下面这样字符串one和two都用字面量”someString”赋值。它们其实都指向同一个内存地址。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String one = &quot;someString&quot;;</div><div class="line">String two = &quot;someString&quot;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>String类的源码实现中有个主要的核心是char数组value，它是用final修饰的，虽然它是用final修饰，但是不代表它不可变，只是在栈中的引用地址不可变，但是它的本体是在堆中的，所以如果直接修改数组的数值，那么还是会造成改变。所以之所以String不可变，不仅仅是因为它被final修饰，主要是因为写String类的工程师在后面所有的String方法里都很小心地没有去动这个value数组里的元素。</p>
+<p><strong>6.String、StringBuffer、StringBuilder的区别？</strong></p>
+<p><a href="https://blog.csdn.net/mad1989/article/details/26389541" target="_blank" rel="external">https://blog.csdn.net/mad1989/article/details/26389541</a></p>
+<ul>
+<li><p>StringBuffer、StringBuilder和String一样，也用来代表字符串。String类是<strong>不可变类</strong>，任何对String的改变都会引发新的String对象的生成；StringBuffer则是<strong>可变类</strong>，任何对它所指代的字符串的改变都不会产生新的对象。既然可变和不可变都有了，为何还有一个StringBuilder呢？</p>
+</li>
+<li><p>先说一下集合的故事，HashTable是线程安全的，很多方法都是synchronized方法，而HashMap不是线程安全的，但其在单线程程序中的性能比HashTable要高。StringBuffer和StringBuilder类的区别也是如此，他们的原理和操作基本相同，区别在于StringBufferd支持并发操作，线性安全的，适合多线程中使用。StringBuilder不支持并发操作，线性不安全的，不适合多线程中使用。新引入的StringBuilder类不是线程安全的，但其在单线程中的性能比StringBuffer高。</p>
+</li>
+</ul>
+<p><strong>7.HashMap、HashTable、ConcurrentHashMap的区别？</strong></p>
+<p><a href="https://www.jianshu.com/p/6007133f1e4c" target="_blank" rel="external">https://www.jianshu.com/p/6007133f1e4c</a></p>
+<p>HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都完成了Map接口，主要区别在于HashMap允许空（null）键值（key）,由于非线程安全，在只有一个线程访问的情况下，效率要高于Hashtable。</p>
+<p>HashMap允许将null作为一个entry的key或者value，而Hashtable不允许。<br>HashMap把Hashtable的contains方法去掉了，改成containsvalue和containsKey。因为contains方法容易让人引起误解。</p>
+<p>Hashtable继承自Dictionary类，而HashMap是Java1.2引进的Map interface的一个实现。<br>最大的不同是，Hashtable的方法是Synchronize的，而HashMap不是，在多个线程访问Hashtable时，不需要自己为它的方法实现同步，而HashMap 就必须为之提供外同步。<br>Hashtable和HashMap采用的hash/rehash算法都大概一样，所以性能不会有很大的差异。</p>
+<p>就HashMap与HashTable主要从三方面来说。</p>
+<ul>
+<li><p>历史原因:Hashtable是基于陈旧的Dictionary类的，HashMap是Java 1.2引进的Map接口的一个实现</p>
+</li>
+<li><p>同步性:Hashtable是线程安全的，也就是说是同步的，而HashMap是线程序不安全的，不是同步的</p>
+</li>
+<li><p>值：只有HashMap可以让你将空值作为一个表的条目的key或value</p>
+</li>
+</ul>
+<p><strong>8.更好的选择：ConcurrentHashMap</strong></p>
+<p>java5中新增了ConcurrentMap接口和它的一个实现类ConcurrentHashMap。</p>
+<p>ConcurrentHashMap提供了和Hashtable以及SynchronizedMap中所不同的锁机制。</p>
+<p>Hashtable中采用的锁机制是一次锁住整个hash表，从而同一时刻只能由一个线程对其进行操作；<br>而ConcurrentHashMap中则是一次锁住一个桶。</p>
+<p>ConcurrentHashMap默认将hash表分为16个桶，诸如get,put,remove等常用操作只锁当前需要用到的桶。</p>
+<p>这样，原来只能一个线程进入，现在却能同时有16个写线程执行，并发性能的提升是显而易见的。上面说到的16个线程指的是写线程，而读操作大部分时候都不需要用到锁。只有在size等操作时才需要锁住整个hash表。</p>
+<p>在迭代方面，ConcurrentHashMap使用了一种不同的迭代方式。在这种迭代方式中，当iterator被创建后集合再发生改变就不再是抛出ConcurrentModificationException，取而代之的是在改变时new新的数据从而不影响原有的数据。iterator完成后再将头指针替换为新的数据。这样iterator线程可以使用原来老的数据。</p>
+<p><strong>9.Java HashMap工作原理及实现</strong></p>
+<p><a href="https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/</a></p>
+<ul>
+<li><p>什么时候会使用HashMap？他有什么特点？</p>
+<p>  是基于Map接口的实现，存储键值对时，它可以接收null的键值，是非同步的，HashMap存储着Entry(hash, key, value, next)对象。</p>
+</li>
+<li><p>你知道HashMap的工作原理吗？</p>
+<p>  通过hash的方法，通过put和get存储和获取对象。存储对象时，我们将K/V传给put方法时，它调用hashCode计算hash从而得到bucket位置，进一步存储，HashMap会根据当前bucket的占用情况自动调整容量(超过Load Facotr则resize为原来的2倍)。获取对象时，我们将K传给get，它调用hashCode计算hash从而得到bucket位置，并进一步调用equals()方法确定键值对。如果发生碰撞的时候，Hashmap通过链表将产生碰撞冲突的元素组织起来，在Java 8中，如果一个bucket中碰撞冲突的元素超过某个限制(默认是8)，则使用红黑树来替换链表，从而提高速度。</p>
+</li>
+<li><p>你知道get和put的原理吗？equals()和hashCode()的都有什么作用？</p>
+<p>  通过对key的hashCode()进行hashing，并计算下标( n-1 &amp; hash)，从而获得buckets的位置。如果产生碰撞，则利用key.equals()方法去链表或树中去查找对应的节点</p>
+</li>
+<li><p>你知道hash的实现吗？为什么要这样实现？</p>
+<p>  在Java 1.8的实现中，是通过hashCode()的高16位异或低16位实现的：(h = k.hashCode()) ^ (h &gt;&gt;&gt; 16)，主要是从速度、功效、质量来考虑的，这么做可以在bucket的n比较小的时候，也能保证考虑到高低bit都参与到hash的计算中，同时不会有太大的开销。</p>
+</li>
+<li><p>如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？</p>
+<p>  如果超过了负载因子(默认0.75)，则会重新resize一个原来长度两倍的HashMap，并且重新调用hash方法。</p>
+</li>
+</ul>
+<p><strong>10.什么是红黑树？</strong></p>
+<p><a href="https://juejin.im/entry/58371f13a22b9d006882902d" target="_blank" rel="external">https://juejin.im/entry/58371f13a22b9d006882902d</a></p>
+<ul>
+<li><p>红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。</p>
+<p>  它的统计性能要好于平衡二叉树（AVL树），因此，红黑树在很多地方都有应用。比如在 Java 集合框架中，很多部分(HashMap, TreeMap, TreeSet 等)都有红黑树的应用，这些集合均提供了很好的性能。</p>
+</li>
+<li><p>黑色高度：从根节点到叶节点的路径上黑色节点的个数，叫做树的黑色高度。</p>
+</li>
+<li><p>红黑树在二叉查找树的基础上加了以下5点：</p>
+<ol>
+<li>每个节点要么是红色，要么是黑色；</li>
+<li>根节点永远是黑色的；</li>
+<li>所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；</li>
+<li>每个红色节点的两个子节点一定都是黑色；</li>
+<li>从任一节点到其子树中每个叶子节点的路径都包含相同数量的黑色节点；</li>
+</ol>
+</li>
+</ul>
+<p><strong>注意：</strong> </p>
+<p>性质 3 中指定红黑树的每个叶子节点都是空节点，而且并叶子节点都是黑色。但 Java 实现的红黑树将使用 null 来代表空节点，因此遍历红黑树时将看不到黑色的叶子节点，反而看到每个叶子节点都是红色的。</p>
+<p>性质 4 的意思是：从每个根到节点的路径上不会有两个连续的红色节点，但黑色节点是可以连续的。<br>因此若给定黑色节点的个数 N，最短路径的情况是连续的 N 个黑色，树的高度为 N - 1;最长路径的情况为节点红黑相间，树的高度为 2(N - 1) 。</p>
+<p>性质 5 是成为红黑树最主要的条件，后序的插入、删除操作都是为了遵守这个规定。</p>
+<p>红黑树并不是标准平衡二叉树，它以性质 5 作为一种平衡方法，使自己的性能得到了提升。</p>
+<p><strong>11.8种常用排序算法实现</strong></p>
+<p><a href="https://itimetraveler.github.io/2017/07/18/%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E4%B8%8Ejava%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">https://itimetraveler.github.io/2017/07/18/%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E4%B8%8Ejava%E5%AE%9E%E7%8E%B0/</a></p>
+<p><strong>12.JVM内存模型</strong></p>
+<p><a href="https://blog.csdn.net/justloveyou_/article/details/71189093" target="_blank" rel="external">JVM内存模型</a></p>
+<h2 id="Java-IO流面试"><a href="#Java-IO流面试" class="headerlink" title="Java IO流面试"></a>Java IO流面试</h2><p>5.什么是比特(Bit),什么是字节(Byte),什么是字符(Char),它们长度是多少,各有什么区别?</p>
+<ul>
+<li>Bit是最小的二进制单位，取值为0或者1。</li>
+<li>Byte是计算机操作数据的最小单位，由8位bit组成，取值为（-128~127），一个数字、英文字符、或者标点符号都为8位bit。</li>
+<li>Char是用户可读写的最小单位，在Java里面由16位bit组成，取值为（0~65535），中文汉字是16位bit。</li>
+</ul>
+<p>6.Java中的所有的流可以分为几大类,它们的名字是什么,各代表什么？</p>
+<ul>
+<li>字节输入流 InputStream </li>
+<li>字节输出流 OutputStream</li>
+<li>字符输入流 Reader</li>
+<li>字符输出流 Writer</li>
+</ul>
+<p>所有流都是这四个流的子类</p>
+<p>常用的IO流有：</p>
+<ul>
+<li>InputStream, OutputStream,</li>
+<li>FileInputStream, FileOutputStream,</li>
+<li>BufferedInputStream, BufferedOutputStream</li>
+<li>Reader, Writer</li>
+<li>BufferedReader, BufferedWriter</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Java面试笔记汇总&quot;&gt;&lt;a href=&quot;#Java面试笔记汇总&quot; class=&quot;headerlink&quot; title=&quot;Java面试笔记汇总&quot;&gt;&lt;/a&gt;Java面试笔记汇总&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;1.Spring MVC执行流程及工作原理&lt;/strong&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Spring MVC执行流程及工作原理</title>
@@ -86,7 +222,7 @@
     <link href="http://kayleman.github.io/2018/07/06/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
     <id>http://kayleman.github.io/2018/07/06/Java多线程学习/</id>
     <published>2018-07-06T13:28:05.000Z</published>
-    <updated>2018-07-13T06:06:23.000Z</updated>
+    <updated>2018-08-22T03:09:54.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要讲了Java中多线程的使用方法、线程同步、线程数据传递、线程状态及相应的一些线程函数用法、概述等。在这之前，首先让我们来了解下在操作系统中进程和线程的区别：</p>
 <ul>
@@ -96,7 +232,7 @@
 <li>多进程是指操作系统能同时运行多个任务（程序）。</li>
 <li>多线程是指在同一程序中有多个顺序流在执行。</li>
 </ul>
-<p>在Java中要想实现多线程，有两种手段，一种是继承Thread类，另外一种是实现Runable接口。(其实准确来讲，<strong>应该有三种</strong>，还有一种是实现Callable接口，并与Future、线程池结合使用。）</p>
+<p>在Java中要想实现多线程，有两种手段，一种是继承Thread类，另外一种是实现Runnable接口。(其实准确来讲，<strong>应该有三种</strong>，还有一种是实现Callable接口，并与Future、线程池结合使用。）</p>
 <a id="more"></a>
 <h1 id="一、扩展java-lang-Thread类"><a href="#一、扩展java-lang-Thread类" class="headerlink" title="一、扩展java.lang.Thread类"></a>一、扩展java.lang.Thread类</h1><p>这里继承Thread类的方法是比较常用的一种，如果说你只是想起一条线程。没有什么其它特殊的要求，那么可以使用Thread.（推荐使用Runable）。下面来看一个简单的实例:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">package algorithm.thread_learn;</div><div class="line"></div><div class="line">class Thread_Demo1 extends Thread&#123;</div><div class="line">    private String name;</div><div class="line">    public Thread_Demo1(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        for (int i = 0; i &lt; 5; i++) &#123;</div><div class="line">            System.out.println(name + &quot; Run:&quot; + i);</div><div class="line">            try &#123;</div><div class="line">                sleep((int) Math.random() * 10);</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Thread_Demo1_Main &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        Thread_Demo1 Th1 = new Thread_Demo1(&quot;A&quot;);</div><div class="line">        Thread_Demo1 Th2 = new Thread_Demo1(&quot;B&quot;);</div><div class="line">        Th1.start();</div><div class="line">        Th2.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -253,7 +389,7 @@
 <li>但是wait()和sleep()都可以通过interrupt()方法打断线程的暂停状态，从而使线程立刻抛出InterruptedException（但不建议使用该方法）。</li>
 </ul>
 <p><strong>sleep（）方法:</strong></p>
-<p>sleep()使当前线程进入停滞状态（阻塞当前线程），让出CUP的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会;</p>
+<p>sleep()使当前线程进入停滞状态（阻塞当前线程），让出CPU的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会;</p>
 <p>sleep()是Thread类的Static(静态)的方法；因此他不能改变对象的机锁，所以当在一个Synchronized块中调用Sleep()方法是，线程虽然休眠了，但是对象的机锁并木有被释放，其他线程无法访问这个对象（即使睡着也持有对象锁）。</p>
 <p>在sleep()休眠时间期满后，该线程不一定会立即执行，这是因为其它线程可能正在运行而且没有被调度为放弃执行，除非此线程具有更高的优先级。 </p>
 <p><strong>wait（）方法:</strong></p>
@@ -338,7 +474,7 @@
 &lt;li&gt;多进程是指操作系统能同时运行多个任务（程序）。&lt;/li&gt;
 &lt;li&gt;多线程是指在同一程序中有多个顺序流在执行。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;在Java中要想实现多线程，有两种手段，一种是继承Thread类，另外一种是实现Runable接口。(其实准确来讲，&lt;strong&gt;应该有三种&lt;/strong&gt;，还有一种是实现Callable接口，并与Future、线程池结合使用。）&lt;/p&gt;
+&lt;p&gt;在Java中要想实现多线程，有两种手段，一种是继承Thread类，另外一种是实现Runnable接口。(其实准确来讲，&lt;strong&gt;应该有三种&lt;/strong&gt;，还有一种是实现Callable接口，并与Future、线程池结合使用。）&lt;/p&gt;
     
     </summary>
     
